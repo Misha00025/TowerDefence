@@ -5,9 +5,10 @@ using UnityEngine;
 public class Bootstrap : MonoBehaviour
 {
     [SerializeField] private GameBoard _gameBoard;
-    [SerializeField] private EneemyGenerator _enemyGenerator;
+    [SerializeField] private EnemyGenerator _enemyGenerator;
     [SerializeField] private Navigator _navigator;
     [SerializeField] private WavesController _wavesController;
+    [SerializeField] private EnemySpawner _enemySpawner;
 
     // Start is called before the first frame update
     public void Awake()
@@ -19,6 +20,8 @@ public class Bootstrap : MonoBehaviour
         _enemyGenerator.Initialize(_gameBoard);
         var waves = _enemyGenerator.GenerateWaves();
 
-        _wavesController.Initialize(_navigator, waves);
+        _wavesController.Initialize(waves);
+        _enemySpawner.Initialize(_navigator);
+        _wavesController.WaveStarted.AddListener(_enemySpawner.StartSpawnWave);
     }
 }

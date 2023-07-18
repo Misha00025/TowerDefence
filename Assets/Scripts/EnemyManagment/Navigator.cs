@@ -9,6 +9,8 @@ public class Navigator : MonoBehaviour
 {
     [SerializeField]
     private Vector2[] _route;
+    [SerializeField]
+    private Vector2 _targetOffset;
     private GameBoard _gameBoard;
 
     public Vector2[] Route => (Vector2[])_route.Clone();
@@ -22,7 +24,7 @@ public class Navigator : MonoBehaviour
     private void GenerateRoute()
     {        
         List<Vector2> cells = _gameBoard.GetWaterCells().ToList();        
-        _route = GenerateRoute(_gameBoard.GetTargetPosition(), cells).ToArray();
+        _route = GenerateRoute(_gameBoard.GetTargetPosition() + _targetOffset, cells).ToArray();
         _route = ClearRoute(_route);
     }
 
@@ -46,7 +48,7 @@ public class Navigator : MonoBehaviour
     {
         if (cells.Count == 0) 
             return new List<Vector2>();
-        Vector2 nextCell = new Vector2();
+        Vector2 nextCell = cells[0];
         float minDist = float.MaxValue;
         foreach (Vector2 cell in cells)
         {

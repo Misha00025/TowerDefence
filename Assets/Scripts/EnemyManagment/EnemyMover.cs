@@ -8,7 +8,7 @@ public class EnemyMover : MonoBehaviour
     private float _speed = 1.6f;
     private Queue<Vector2> _route = new Queue<Vector2>();
     private Vector2 _target;
-    private Vector3 _direction = Vector3.zero;
+    private Vector3 _direction = Vector3.up;
 
 
 
@@ -19,8 +19,8 @@ public class EnemyMover : MonoBehaviour
             _route.Enqueue(pair);
         }
         _target = _route.Dequeue();
-        Vector2 position = new Vector2(transform.position.x, transform.position.y);
-        _direction = (_target - position).normalized;
+        //Vector2 position = new Vector2(transform.position.x, transform.position.y);
+        //_direction = (_target - position).normalized;
     }
 
     public void Move()
