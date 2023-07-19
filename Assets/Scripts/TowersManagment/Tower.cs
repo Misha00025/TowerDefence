@@ -7,10 +7,14 @@ public class Tower : MonoBehaviour
     [SerializeField] private Enemy _target;
 
     public Enemy Target => _target;
-
     public Weapon Weapon => _weapon;
 
     public UnityEvent<Tower> TargetUnfocus = new UnityEvent<Tower>();
+
+    private void Awake()
+    {
+        
+    }
 
     public void SetTarget(Enemy target)
     {

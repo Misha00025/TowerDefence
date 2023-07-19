@@ -16,6 +16,7 @@ public class Bootstrap : MonoBehaviour
     [Header("Башни и база")]
     [SerializeField] private TowersController _towersController;
     [SerializeField] private BuildingShop _builder;
+    [SerializeField] private BaseHealth _baseHealth;
     private BuilderInput _builderInput;
 
     [Header("Экономика")]
@@ -29,6 +30,9 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private PlayerWalletView _playerWalletView;
     [SerializeField] private TextMeshProUGUI _meshPro;
 
+    [Header("Отладка")]
+    [SerializeField] private TextMeshProUGUI _debugMesh;
+
     // Start is called before the first frame update
     public void Awake()
     {
@@ -37,6 +41,7 @@ public class Bootstrap : MonoBehaviour
         _navigator.Initialize(_gameBoard);
         _enemyGenerator.Initialize(_gameBoard);
         var waves = _enemyGenerator.GenerateWaves();
+        AddListenerToFinish(waves);
         _wavesController.Initialize(waves);
         _enemySpawner.Initialize(_navigator);
         _wavesController.WaveStarted.AddListener(_enemySpawner.StartSpawnWave);
@@ -50,6 +55,16 @@ public class Bootstrap : MonoBehaviour
 
         InputInitialization(); 
         InitializeView();
+        _playerInput.ActionActivated.AddListener((Ray ray, IncomingAction action) => { _debugMesh.SetText($"{action}"); });
+    }
+
+    private void AddListenerToFinish(List<Wave> waves)
+    {
+        foreach (Wave wave in waves) 
+            foreach (var mover in wave.Enemies)
+            {
+                mover.FinishedAlive.AddListener(_baseHealth.TakeDamage);
+            }
     }
 
     private void InputInitialization()

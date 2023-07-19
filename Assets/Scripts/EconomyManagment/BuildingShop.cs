@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,7 +17,6 @@ public class BuildingShop : Builder
         {
             blueprint.TowerIntansiated.AddListener((int price) =>
             {
-                Debug.Log($"Price = {price}");
                 _nextPrice = price;
             });
         }
@@ -27,11 +25,13 @@ public class BuildingShop : Builder
     public override bool TryBuildTower(Tower tower)
     {
         bool hasMoney = _wallet.Money >= _nextPrice;
-        bool sucsess = hasMoney && base.TryBuildTower(tower);
-        if (hasMoney && sucsess)
-            _wallet.Pay(_nextPrice);
-        else if (sucsess)
-            Destroy(tower.gameObject);
-        return sucsess;
+        if (hasMoney) 
+        {
+            bool success = base.TryBuildTower(tower);
+            if (success) _wallet.Pay(_nextPrice);
+            return success;
+        }
+        Destroy(tower.gameObject);
+        return false;
     }
 }

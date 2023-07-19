@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Enemy))]
 public class EnemyMover : MonoBehaviour
@@ -12,6 +13,8 @@ public class EnemyMover : MonoBehaviour
     private Vector3 _direction = Vector3.up;
     private Enemy _enemy;
     public Enemy Enemy => _enemy;
+
+    public UnityEvent<int> FinishedAlive = new UnityEvent<int>();
 
     private void Awake()
     {
@@ -37,6 +40,7 @@ public class EnemyMover : MonoBehaviour
         {
             if (_route.Count == 0)
             {
+                FinishedAlive.Invoke(Enemy.Health);
                 Destroy(gameObject);
                 return;
             }

@@ -14,7 +14,6 @@ public class BuilderInput
     {
         _playerInput = playerInput;
         _builder = builder;
-        Debug.Log($"Builder is {builder.GetType()}");
         _playerInput.ActionActivated.AddListener(OnPlayerInput);
     }
 
@@ -26,6 +25,8 @@ public class BuilderInput
                 StartDrag(ray);
                 break;
             case IncomingAction.Drop:
+                if (_draggetTower == null)
+                    break;
                 _builder.TryBuildTower(_draggetTower);
                 _dragged = false;
                 _draggetTower = null;
@@ -36,11 +37,9 @@ public class BuilderInput
     private void StartDrag(Ray ray)
     {
         RaycastHit hit;
-        Debug.Log("Input activated!");
         if (Physics.Raycast(ray, out hit))
         {
             TowerBlueprint blueprint;
-            Debug.Log($"Hit on: {hit.collider}");
             if (hit.collider.gameObject.TryGetComponent(out blueprint))
             {
                 Tower tower = blueprint.GetInstanciatedObject();
@@ -49,7 +48,6 @@ public class BuilderInput
                 _dragged = true;
                 _draggetTower = tower;
                 _playerInput.StartCoroutine(Drag(tower));
-                Debug.Log("Spawned!");
             }
         }
     }

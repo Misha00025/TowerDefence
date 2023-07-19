@@ -12,7 +12,18 @@ public class Weapon
     [SerializeField] private float _attackRadius = 4f;
     [SerializeField] private float _attackSpeed = 0.5f;
 
+    private List<Bullet> _bullets = new List<Bullet>();
+
     private float _timeInreload = 0f;
+
+    public IEnumerator CreateBullets()
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            _bullets.Add(GameObject.Instantiate(_bulletPrefab).GetComponent<Bullet>());
+            yield return null;
+        }
+    }
 
     public void Attack(Enemy target)
     {
@@ -20,9 +31,21 @@ public class Weapon
         if (_timeInreload > 1 / _attackSpeed)
         {
             _timeInreload = 0;
-            target.TakeDamage(_damage);
+            Bullet reservedBullet = null;
+            foreach (var bullet in _bullets)
+            {
+                if (bullet.isActiveAndEnabled) continue;
+                reservedBullet = bullet;
+            }
+            if (reservedBullet == null)
+            {
+                reservedBullet = GameObject.Instantiate(_bulletPrefab).GetComponent<Bullet>();
+                _bullets.Add(reservedBullet);
+            }
+            reservedBullet.gameObject.SetActive(true);
+            reservedBullet.transform.position = _turret.position;
+            reservedBullet.StartCoroutine(reservedBullet.PersecuteTarget(target, _damage));
         }
-        Debug.DrawLine(_turret.position, target.transform.position, Color.red);
         _timeInreload += Time.deltaTime;
     }
 
@@ -30,19 +53,8 @@ public class Weapon
     {
         if (target == null) return false;
         if (_turret == null) return false;
-        DrawDebugLines();
         if (_bulletPrefab == null) return false;
         bool inAttackRadius = Vector2.Distance(_turret.position, target.transform.position) < _attackRadius;
-        Debug.Log($"Target {target.name} in attack radius: {inAttackRadius}");
         return inAttackRadius;
-    }
-
-    private void DrawDebugLines()
-    {
-        var position = _turret.position;
-        Debug.DrawLine(position, position + Vector3.up * _attackRadius);
-        Debug.DrawLine(position, position + Vector3.left * _attackRadius);
-        Debug.DrawLine(position, position + Vector3.right * _attackRadius);
-        Debug.DrawLine(position, position + Vector3.down * _attackRadius);
     }
 }

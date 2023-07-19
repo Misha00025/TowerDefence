@@ -14,22 +14,18 @@ PrefabInstance:
     - target: {fileID: -9050070280212934163, guid: a20114d0e666e554b87a32e4f636d853, type: 3}
       propertyPath: _towerPrefab
       value: 
-      objectReference: {fileID: 5107474976334737426, guid: de53abf29766df040ac6eaaeb91ddda9, type: 3}
-    - target: {fileID: 4085383275380107945, guid: a20114d0e666e554b87a32e4f636d853, type: 3}
-      propertyPath: m_Color.b
-      value: 0.6313726
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085383275380107945, guid: a20114d0e666e554b87a32e4f636d853, type: 3}
-      propertyPath: m_Color.g
-      value: 0.2772568
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085383275380107945, guid: a20114d0e666e554b87a32e4f636d853, type: 3}
-      propertyPath: m_Color.r
-      value: 0.17930983
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4681558887177404720, guid: de53abf29766df040ac6eaaeb91ddda9, type: 3}
     - target: {fileID: 4667926072001940527, guid: a20114d0e666e554b87a32e4f636d853, type: 3}
       propertyPath: m_Name
       value: TowerBlueprint2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5213450197682357475, guid: a20114d0e666e554b87a32e4f636d853, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 5213450197682357475, guid: a20114d0e666e554b87a32e4f636d853, type: 3}
+      propertyPath: m_Color.g
+      value: 0.27509797
       objectReference: {fileID: 0}
     - target: {fileID: 7451837751673875783, guid: a20114d0e666e554b87a32e4f636d853, type: 3}
       propertyPath: m_Pivot.x
@@ -115,5 +111,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a20114d0e666e554b87a32e4f636d853, type: 3}

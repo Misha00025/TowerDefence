@@ -13,6 +13,8 @@ public class MobileInput : IPlayerInput
 
     private Ray _inputRay;
 
+    private Touch _touch;
+
     public UnityEvent<Ray, IncomingAction> ActionActivated { get; private set; } = new UnityEvent<Ray, IncomingAction>();
 
     public MobileInput(float dragToDelay)
@@ -27,45 +29,45 @@ public class MobileInput : IPlayerInput
 
     public void CheckInput()
     {
-        foreach (Touch touch in Input.touches)
+        if (Input.touches.Length == 0)
+            return;
+        _touch = Input.touches[0];
+        Touch touch = _touch;
+        switch (touch.phase)
         {
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                    SaveRay(touch);
-                    break;
-                case TouchPhase.Moved:
-                    SaveRay(touch); 
-                    if (!_isDragging)
-                    {
-                        _isDragging = true;
-                        _delay = _delayToDrag;
-                        ActionActivated.Invoke(_inputRay, IncomingAction.Drag);
-                    }
-                    break;
-                case TouchPhase.Stationary:
-                    if (_delay < _delayToDrag)
-                    {
-                        _delay += Time.deltaTime;
-                    }
-                    else if (!_isDragging)
-                    {
-                        _isDragging = true;
-                        ActionActivated.Invoke(_inputRay, IncomingAction.Drag);
-                    }
-                    break;
-                case TouchPhase.Ended:
-                    if (!_isDragging)
-                        ActionActivated.Invoke(_inputRay, IncomingAction.Major);
-                    if (_isDragging)
-                        ActionActivated.Invoke(_inputRay, IncomingAction.Drop);
-                    _isDragging = false;
-                    _delay = 0;
-                    break;
-                case TouchPhase.Canceled:
-                    break;
-            }
-            break;
+            case TouchPhase.Began:
+                SaveRay(touch);
+                break;
+            case TouchPhase.Moved:
+                SaveRay(touch); 
+                if (!_isDragging)
+                {
+                    _isDragging = true;
+                    _delay = _delayToDrag;
+                    ActionActivated.Invoke(_inputRay, IncomingAction.Drag);
+                }
+                break;
+            case TouchPhase.Stationary:
+                if (_delay < _delayToDrag)
+                {
+                    _delay += Time.deltaTime;
+                }
+                else if (!_isDragging)
+                {
+                    _isDragging = true;
+                    ActionActivated.Invoke(_inputRay, IncomingAction.Drag);
+                }
+                break;
+            case TouchPhase.Ended:
+                if (!_isDragging)
+                    ActionActivated.Invoke(_inputRay, IncomingAction.Major);
+                if (_isDragging)
+                    ActionActivated.Invoke(_inputRay, IncomingAction.Drop);
+                _isDragging = false;
+                _delay = 0;
+                break;
+            case TouchPhase.Canceled:
+                break;
         }
     }
 
