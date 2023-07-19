@@ -124,3 +124,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0662907a2247824795190c2ae74fc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weapon:
+    _turret: {fileID: 6524061422564351315}
+    _bulletPrefab: {fileID: 0}
+    _damage: 1
+    _attackRadius: 4
+    _attackSpeed: 3
+  _target: {fileID: 0}
+  TargetUnfocus:
+    m_PersistentCalls:
+      m_Calls: []

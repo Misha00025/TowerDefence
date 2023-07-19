@@ -24,11 +24,13 @@ public class WavesController : MonoBehaviour
     public void StartWave(Wave wave)
     {
         _currentWave = wave;
-        _currentWave.Start((Wave wave) => { 
-            if (wave == _currentWave) 
+        _currentWave.WaveStoped.AddListener((Wave wave) =>
+        {
+            if (wave == _currentWave)
                 _currentWave = null;
             _waves.Remove(wave);
         });
+        _currentWave.Start();
         WaveStarted.Invoke(_currentWave);
     }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [Serializable]
 public class Wave
@@ -9,13 +10,13 @@ public class Wave
     [SerializeField]
     private List<EnemyMover> _enemies = new List<EnemyMover>();
 
-    private Action<Wave> _stopWave;
-
     public EnemyMover[] Enemies => _enemies.ToArray();
 
-    public void Start(Action<Wave> actionOnEndOfWave)
+    public UnityEvent<Wave> WaveStoped = new UnityEvent<Wave>();
+
+    public void Start()
     {
-        _stopWave = actionOnEndOfWave;
+
     }
 
     public void Update()
@@ -31,7 +32,7 @@ public class Wave
         }
         _enemies.Remove(nullEnemy);
         if (_enemies.Count == 0)
-            _stopWave(this);
+            WaveStoped.Invoke(this);
     }
 
     public void AddEnemy(GameObject enemy)

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Enemy))]
 public class EnemyMover : MonoBehaviour
 {
     [SerializeField] 
@@ -9,8 +10,13 @@ public class EnemyMover : MonoBehaviour
     private Queue<Vector2> _route = new Queue<Vector2>();
     private Vector2 _target;
     private Vector3 _direction = Vector3.up;
+    private Enemy _enemy;
+    public Enemy Enemy => _enemy;
 
-
+    private void Awake()
+    {
+        _enemy = GetComponent<Enemy>();
+    }
 
     public void SetRoute(Vector2[] route)
     {

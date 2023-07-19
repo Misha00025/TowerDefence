@@ -18,10 +18,10 @@ public class GameBoard : MonoBehaviour
     [SerializeField]
     private GameObject _target;
 
-    [SerializeField]
     private Vector2[] _water;
-    [SerializeField]
     private Vector2[] _ground;
+    private Dictionary<Vector2, GameObject> _buildings = new Dictionary<Vector2, GameObject>();
+
 
     public UnityEvent LoadComplite { get; private set; } = new UnityEvent();
 
@@ -31,6 +31,7 @@ public class GameBoard : MonoBehaviour
         _grid = GetComponent<Grid>();
         _initialized = true;
         StartCoroutine(FindCells());
+        AlignToGrid();
     }
 
     private IEnumerator FindCells()
@@ -41,13 +42,15 @@ public class GameBoard : MonoBehaviour
         List<Vector2> ground = new List<Vector2>();
         foreach (Cell cell in cells)
         {
+            Vector2 position = cell.transform.position;
             if (cell.CanBuild)
             {
-                ground.Add(cell.transform.position);
+                ground.Add(position);
             }
             if (cell.CanMove)
             {
-                water.Add(cell.transform.position);
+                water.Add(position);
+                _buildings.Add(position, null);
             }
             Destroy(cell.gameObject);
         }
@@ -75,11 +78,6 @@ public class GameBoard : MonoBehaviour
         return (Vector2[])_water.Clone();
     }
 
-    public Vector2[] GetGrounCells()
-    {
-        return (Vector2[])_ground.Clone();
-    }
-
     public Vector2 GetTargetPosition()
     {
         return _target.transform.position;
@@ -88,6 +86,11 @@ public class GameBoard : MonoBehaviour
     public void SetOnGrid(GameObject gameObject)
     {
         if (!_initialized) return;
+        
+    }
 
+    public Vector2Int GetCellPosition(Vector2 worldPosition)
+    {
+        return (Vector2Int)_grid.WorldToCell(worldPosition);
     }
 }

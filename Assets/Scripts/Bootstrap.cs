@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Bootstrap : MonoBehaviour
@@ -9,6 +10,12 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private Navigator _navigator;
     [SerializeField] private WavesController _wavesController;
     [SerializeField] private EnemySpawner _enemySpawner;
+
+    [SerializeField] private TowersController _towersController;
+
+    [SerializeField] private PlayerInput _playerInput;
+
+    [SerializeField] private TextMeshProUGUI _meshPro;
 
     // Start is called before the first frame update
     public void Awake()
@@ -23,5 +30,16 @@ public class Bootstrap : MonoBehaviour
         _wavesController.Initialize(waves);
         _enemySpawner.Initialize(_navigator);
         _wavesController.WaveStarted.AddListener(_enemySpawner.StartSpawnWave);
+
+        _towersController.Initialize();
+        _wavesController.WaveStarted.AddListener(_towersController.GetReadyFor);
+
+        _playerInput.Initialize();
+        _meshPro.SetText(Application.platform.ToString());
+        _playerInput.ActionActivated.AddListener((Ray ray, IncomingAction action) =>
+        {
+            _meshPro.SetText($"{action}");
+        });
     }
+
 }
