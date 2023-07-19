@@ -29,12 +29,13 @@ public class Bootstrap : MonoBehaviour
     [Header("Отображение")]
     [SerializeField] private PlayerWalletView _playerWalletView;
     [SerializeField] private TextMeshProUGUI _meshPro;
+    [SerializeField] private WaveTimerView _waveTimer;
 
     [Header("Отладка")]
     [SerializeField] private TextMeshProUGUI _debugMesh;
 
     // Start is called before the first frame update
-    public void Awake()
+    public void Start()
     {
         _gameBoard.Initialize();
 
@@ -77,5 +78,6 @@ public class Bootstrap : MonoBehaviour
     private void InitializeView()
     {
         _playerWalletView.Initialize(_playerWallet, _meshPro);
+        _waveTimer.Initialize(_wavesController);
     }
 }

@@ -6,17 +6,34 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _speed = 12f;
 
-    public IEnumerator PersecuteTarget(Enemy enemy, int damage)
+    public IEnumerator PersecuteTarget(Vector2 dimention, float maxDistance, int damage)
     {
-        while(enemy != null && Vector2.Distance(transform.position, enemy.transform.position) > 0.1f)
+        transform.rotation = Quaternion.FromToRotation(Vector2.up, dimention);
+        float distance = 0;
+        Enemy enemy = null;
+        while (distance < maxDistance)
         {
-            Vector3 dimention = (enemy.transform.position - transform.position).normalized;
-            transform.position += dimention * _speed * Time.deltaTime;
-            //Vector2.MoveTowards(transform.position, enemy.transform.position, _speed * Time.deltaTime);
+            float delta = _speed * Time.deltaTime;
+            if (TryFindEnemy(dimention, delta, out enemy))
+            {
+                enemy.TakeDamage(damage);
+                break;
+            }
+            transform.position += (Vector3)(dimention * delta);
+            distance += delta;
             yield return null;
         }
-        if (enemy != null)
-            enemy.TakeDamage(damage);
         gameObject.SetActive(false);
+    }
+
+    private bool TryFindEnemy(Vector2 direcntion, float delta, out Enemy enemy)
+    {
+        enemy = null;
+
+        Ray2D ray2D = new Ray2D() { direction = direcntion };
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direcntion, delta);
+        if (hit.collider == null)
+            return false;        
+        return hit.collider.TryGetComponent<Enemy>(out enemy);
     }
 }

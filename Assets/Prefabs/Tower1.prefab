@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6be0a7c38f20236469316b665fea14ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,7 +103,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.9569378, y: 0.9569378}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -126,9 +126,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weapon:
     _turret: {fileID: 6524061422564351315}
-    _bulletPrefab: {fileID: 4516500558179109662, guid: 42648fa3b4a1a434e9036955ac13dd32, type: 3}
+    _bulletPrefab: {fileID: 5623185397514778330, guid: 4d15cfd5b643aef4daf6e2b9c2c18ddc, type: 3}
     _damage: 1
-    _attackRadius: 3
+    _attackRadius: 4
     _attackSpeed: 4
   _target: {fileID: 0}
   TargetUnfocus:

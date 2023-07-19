@@ -13,7 +13,10 @@ public class WavesController : MonoBehaviour
 
     private float _timer = 0;
 
+    public float Dely => _dely;
+
     public UnityEvent<Wave> WaveStarted = new UnityEvent<Wave>();
+    public UnityEvent WavesIsEmpty = new UnityEvent();
 
     public void Initialize(List<Wave> waves)
     {
@@ -32,6 +35,12 @@ public class WavesController : MonoBehaviour
         });
         _currentWave.Start();
         WaveStarted.Invoke(_currentWave);
+    }
+
+    public void StartNextWave()
+    {
+        _timer = 0;
+        StartWave(_waves[0]);
     }
 
     public void Update()

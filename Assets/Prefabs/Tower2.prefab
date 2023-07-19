@@ -21,16 +21,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5107474976334737426, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
       propertyPath: _weapon._damage
-      value: 5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5107474976334737426, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
       propertyPath: _weapon._attackSpeed
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5107474976334737426, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
       propertyPath: _weapon._attackRadius
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5107474976334737426, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
+      propertyPath: _weapon._bulletPrefab
+      value: 
+      objectReference: {fileID: 4516500558179109662, guid: 42648fa3b4a1a434e9036955ac13dd32, type: 3}
     - target: {fileID: 6524061422564351315, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
       propertyPath: m_RootOrder
       value: 0

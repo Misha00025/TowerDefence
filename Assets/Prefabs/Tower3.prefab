@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5107474976334737426, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
       propertyPath: _weapon._attackRadius
-      value: 1.6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6524061422564351315, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
       propertyPath: m_RootOrder

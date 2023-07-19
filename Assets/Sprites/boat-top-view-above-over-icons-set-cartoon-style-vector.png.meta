@@ -1,0 +1,499 @@
+fileFormatVersion: 2
+guid: e307c663e060c18499c69b6eed31ea37
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: boat-top-view-above-over-icons-set-cartoon-style-vector_0
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 1442
+        width: 92
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99d1929cfbed64149ba5dcc49593c895
+      internalID: -322787498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boat-top-view-above-over-icons-set-cartoon-style-vector_1
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 1448
+        width: 94
+        height: 421
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 4, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ef2fd25795cd14a959abab8cf4a200
+      internalID: -408105315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boat-top-view-above-over-icons-set-cartoon-style-vector_2
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 1442
+        width: 93
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c349c373088afd479770283203aa17c
+      internalID: 2121775268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boat-top-view-above-over-icons-set-cartoon-style-vector_3
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 1461
+        width: 95
+        height: 394
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3206be771581cc846aed15a799d3260b
+      internalID: -471574847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boat-top-view-above-over-icons-set-cartoon-style-vector_4
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 980
+        width: 127
+        height: 425
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a9c64cc7ddeb6479fa885ab68fea6e
+      internalID: 356634222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boat-top-view-above-over-icons-set-cartoon-style-vector_5
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 998
+        width: 346
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6e19cdfc84d2014581dc6be63ba65b0
+      internalID: -940107071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boat-top-view-above-over-icons-set-cartoon-style-vector_6
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 998
+        width: 109
+        height: 389
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00bce1e32e6dc3d42b4b5e893635721b
+      internalID: -1200672181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boat-top-view-above-over-icons-set-cartoon-style-vector_7
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 992
+        width: 220
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1ddb4ffbbc5bdc41acea512d8c6a345
+      internalID: -336728910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boat-top-view-above-over-icons-set-cartoon-style-vector_8
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 519
+        width: 154
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60d10f9d1fce05b449ff63039bc3d29f
+      internalID: 156791618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boat-top-view-above-over-icons-set-cartoon-style-vector_9
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 514
+        width: 135
+        height: 427
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe8b8b1b39ace1459a3e11a1bbfae88
+      internalID: -1930324124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boat-top-view-above-over-icons-set-cartoon-style-vector_10
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 524
+        width: 127
+        height: 408
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eecd5fd2dbe542b498788e017767eb0a
+      internalID: 1794669081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boat-top-view-above-over-icons-set-cartoon-style-vector_11
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 515
+        width: 130
+        height: 425
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d15d0ac8b615a94eb6c695e26d78d29
+      internalID: -1063753432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boat-top-view-above-over-icons-set-cartoon-style-vector_12
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 59
+        width: 74
+        height: 405
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d5ed63e0e27b0044806f0f27a3c6d2a
+      internalID: -203132669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boat-top-view-above-over-icons-set-cartoon-style-vector_13
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 42
+        width: 223
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28fc07a8bef28ed4fb079cff504e74c2
+      internalID: -110611553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boat-top-view-above-over-icons-set-cartoon-style-vector_14
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 53
+        width: 249
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ad6b29e6e13ff40b7e929f7af55b77
+      internalID: -144207861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boat-top-view-above-over-icons-set-cartoon-style-vector_15
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 48
+        width: 280
+        height: 429
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad887f5a6a6e2434d838fcb84723f795
+      internalID: -1470761887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      boat-top-view-above-over-icons-set-cartoon-style-vector_5: -940107071
+      boat-top-view-above-over-icons-set-cartoon-style-vector_14: -144207861
+      boat-top-view-above-over-icons-set-cartoon-style-vector_4: 356634222
+      boat-top-view-above-over-icons-set-cartoon-style-vector_10: 1794669081
+      boat-top-view-above-over-icons-set-cartoon-style-vector_13: -110611553
+      boat-top-view-above-over-icons-set-cartoon-style-vector_15: -1470761887
+      boat-top-view-above-over-icons-set-cartoon-style-vector_7: -336728910
+      boat-top-view-above-over-icons-set-cartoon-style-vector_12: -203132669
+      boat-top-view-above-over-icons-set-cartoon-style-vector_1: -408105315
+      boat-top-view-above-over-icons-set-cartoon-style-vector_11: -1063753432
+      boat-top-view-above-over-icons-set-cartoon-style-vector_2: 2121775268
+      boat-top-view-above-over-icons-set-cartoon-style-vector_3: -471574847
+      boat-top-view-above-over-icons-set-cartoon-style-vector_8: 156791618
+      boat-top-view-above-over-icons-set-cartoon-style-vector_9: -1930324124
+      boat-top-view-above-over-icons-set-cartoon-style-vector_0: -322787498
+      boat-top-view-above-over-icons-set-cartoon-style-vector_6: -1200672181
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

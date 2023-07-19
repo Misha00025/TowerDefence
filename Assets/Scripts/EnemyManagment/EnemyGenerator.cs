@@ -23,18 +23,24 @@ public class EnemyGenerator : MonoBehaviour
         List<Wave> waves = new List<Wave>();
         foreach (var wave in _waves)
         {
-            Wave newWave = new Wave();
-            foreach (var enemyInWave in wave.Enemies)
-                for (int i = 0; i < enemyInWave.Count; i++)
-                {
-                    if (enemyInWave.EnemyPrefab == null)
-                        continue;
-                    var enemy = Instantiate(enemyInWave.EnemyPrefab.gameObject, _gameBoard.transform);
-                    newWave.AddEnemy(enemy);                    
-                }
+            Wave newWave = GenerateWave(wave);
             waves.Add(newWave);
         }
             
         return waves;
+    }
+
+    public Wave GenerateWave(WavePrefab wave)
+    {
+        Wave newWave = new Wave();
+        foreach (var enemyInWave in wave.Enemies)
+            for (int i = 0; i < enemyInWave.Count; i++)
+            {
+                if (enemyInWave.EnemyPrefab == null)
+                    continue;
+                var enemy = Instantiate(enemyInWave.EnemyPrefab.gameObject, _gameBoard.transform);
+                newWave.AddEnemy(enemy);
+            }
+        return newWave;
     }
 }

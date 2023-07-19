@@ -28,15 +28,14 @@ public class EnemyMover : MonoBehaviour
             _route.Enqueue(pair);
         }
         _target = _route.Dequeue();
-        //Vector2 position = new Vector2(transform.position.x, transform.position.y);
-        //_direction = (_target - position).normalized;
+        transform.rotation = Quaternion.Euler(0, 0, 90);
     }
 
     public void Move()
     {
         Vector2 position = new Vector2(transform.position.x, transform.position.y);
-        Vector3 direction = (_target - position).normalized;
-        if (Vector3.Distance(direction, _direction) > 0.1f)
+        //Vector3 direction = (_target - position).normalized;
+        if (Vector3.Distance(position, _target) < 0.1f)
         {
             if (_route.Count == 0)
             {
@@ -46,9 +45,10 @@ public class EnemyMover : MonoBehaviour
             }
             _target = _route.Dequeue();
             _direction = (_target - position).normalized;
+            transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 90);
             return;
         }
-        transform.position += direction * _speed * Time.deltaTime;
+        transform.position += _direction * _speed * Time.deltaTime;
 
     }
 }

@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -9050070280212934163, guid: a20114d0e666e554b87a32e4f636d853, type: 3}
       propertyPath: _price
-      value: 250
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: -9050070280212934163, guid: a20114d0e666e554b87a32e4f636d853, type: 3}
       propertyPath: _towerPrefab

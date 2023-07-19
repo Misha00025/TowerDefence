@@ -25,26 +25,34 @@ public class Weapon
         }
     }
 
+    private Bullet GetBullet()
+    {
+        Bullet reservedBullet = null;
+        foreach (var bullet in _bullets)
+        {
+            if (bullet.isActiveAndEnabled) continue;
+            reservedBullet = bullet;
+        }
+        if (reservedBullet == null)
+        {
+            reservedBullet = GameObject.Instantiate(_bulletPrefab).GetComponent<Bullet>();
+            _bullets.Add(reservedBullet);
+        }
+        reservedBullet.gameObject.SetActive(true);
+        reservedBullet.transform.position = _turret.position;
+        return reservedBullet;
+    }
+
     public void Attack(Enemy target)
     {
         if (!CanAttack(target)) return;
         if (_timeInreload > 1 / _attackSpeed)
         {
             _timeInreload = 0;
-            Bullet reservedBullet = null;
-            foreach (var bullet in _bullets)
-            {
-                if (bullet.isActiveAndEnabled) continue;
-                reservedBullet = bullet;
-            }
-            if (reservedBullet == null)
-            {
-                reservedBullet = GameObject.Instantiate(_bulletPrefab).GetComponent<Bullet>();
-                _bullets.Add(reservedBullet);
-            }
-            reservedBullet.gameObject.SetActive(true);
-            reservedBullet.transform.position = _turret.position;
-            reservedBullet.StartCoroutine(reservedBullet.PersecuteTarget(target, _damage));
+            Bullet bullet = GetBullet();
+            Vector3 dimention3 = target.transform.position - _turret.position;
+            Vector2 dimention = new Vector2(dimention3.x, dimention3.y);
+            bullet.StartCoroutine(bullet.PersecuteTarget(dimention, _attackRadius, _damage));
         }
         _timeInreload += Time.deltaTime;
     }
