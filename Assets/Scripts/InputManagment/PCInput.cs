@@ -65,7 +65,7 @@ public class PCInput : IPlayerInput
 
     public Ray GetInputRay()
     {
-        throw new System.NotImplementedException();
+        return _inputRay;
     }
 
     private void SaveRay(Vector2 position)

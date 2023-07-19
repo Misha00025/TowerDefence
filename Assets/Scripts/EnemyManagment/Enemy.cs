@@ -8,8 +8,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int _health = 10;
     [SerializeField] private int _reward = 10;
 
-    public UnityEvent<int> HealthChanged = new UnityEvent<int>();
-    public UnityEvent<Enemy, int> Died = new UnityEvent<Enemy, int>();
+    public UnityEvent<int> HealthChanged { get; private set; } = new UnityEvent<int>();
+    public UnityEvent<int> Died { get; private set; } = new UnityEvent<int>();
 
     public int Health => _health;
 
@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
 
         if (Health <= 0)
         {
-            Died.Invoke(this, _reward);
+            Died.Invoke(_reward);
             Destroy(gameObject);
         }
     }

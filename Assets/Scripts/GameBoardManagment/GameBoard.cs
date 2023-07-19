@@ -19,7 +19,6 @@ public class GameBoard : MonoBehaviour
     private GameObject _target;
 
     private Vector2[] _water;
-    private Vector2[] _ground;
     private Dictionary<Vector2, GameObject> _buildings = new Dictionary<Vector2, GameObject>();
 
 
@@ -46,16 +45,15 @@ public class GameBoard : MonoBehaviour
             if (cell.CanBuild)
             {
                 ground.Add(position);
+                _buildings.Add((Vector2Int)GetCellPosition(position), null);
             }
             if (cell.CanMove)
             {
                 water.Add(position);
-                _buildings.Add(position, null);
             }
             Destroy(cell.gameObject);
         }
         _water = water.ToArray();
-        _ground = ground.ToArray();
         LoadComplite.Invoke();
     }
 
@@ -86,11 +84,26 @@ public class GameBoard : MonoBehaviour
     public void SetOnGrid(GameObject gameObject)
     {
         if (!_initialized) return;
+        Vector3Int cellPosition = GetCellPosition(gameObject.transform.position);
+        if (_buildings.ContainsKey((Vector2Int)cellPosition))
+        {
+            _buildings[(Vector2Int)cellPosition] = gameObject;
+            _objects.Add(gameObject);
+            Vector3 vector = _grid.GetCellCenterWorld(cellPosition);
+            gameObject.transform.parent = transform;
+            gameObject.transform.position = vector;
+        }
         
     }
 
-    public Vector2Int GetCellPosition(Vector2 worldPosition)
+    public bool IsFreeGround(Vector2 position)
     {
-        return (Vector2Int)_grid.WorldToCell(worldPosition);
+        Vector2Int cellPosition = (Vector2Int)GetCellPosition(position);
+        return _buildings.ContainsKey(cellPosition) && _buildings[cellPosition] == null;
+    }
+
+    public Vector3Int GetCellPosition(Vector2 worldPosition)
+    {
+        return _grid.WorldToCell(worldPosition);
     }
 }
