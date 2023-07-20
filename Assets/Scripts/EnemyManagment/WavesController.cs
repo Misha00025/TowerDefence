@@ -39,6 +39,8 @@ public class WavesController : MonoBehaviour
 
     public void StartNextWave()
     {
+        if (_currentWave != null)
+            return;
         _timer = 0;
         StartWave(_waves[0]);
     }

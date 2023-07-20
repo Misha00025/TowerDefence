@@ -26,6 +26,22 @@ public class PCInput : IPlayerInput
 
     public void CheckInput()
     {
+        CheckMouseInput();
+        CheckKeyboardInput();
+    }
+
+    public Ray GetInputRay()
+    {
+        return _inputRay;
+    }
+
+    private void SaveRay(Vector2 position)
+    {
+        _inputRay = Camera.main.ScreenPointToRay(position);
+    }
+
+    private void CheckMouseInput()
+    {
         if (Input.GetMouseButtonDown(0))
         {
             SaveRay(Input.mousePosition);
@@ -63,13 +79,9 @@ public class PCInput : IPlayerInput
         }
     }
 
-    public Ray GetInputRay()
+    private void CheckKeyboardInput()
     {
-        return _inputRay;
-    }
-
-    private void SaveRay(Vector2 position)
-    {
-        _inputRay = Camera.main.ScreenPointToRay(position);
+        if (Input.GetKeyDown(KeyCode.Escape))
+            ActionActivated.Invoke(new Ray(), IncomingAction.Exit);
     }
 }

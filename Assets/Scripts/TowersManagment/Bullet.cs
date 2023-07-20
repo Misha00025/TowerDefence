@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
                 break;
             }
             transform.position += (Vector3)(dimention * delta);
-            distance += delta;
+            distance += delta;           
             yield return null;
         }
         gameObject.SetActive(false);

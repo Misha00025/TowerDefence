@@ -16,15 +16,6 @@ public class Weapon
 
     private float _timeInreload = 0f;
 
-    public IEnumerator CreateBullets()
-    {
-        for (int i = 0; i < 30; i++)
-        {
-            _bullets.Add(GameObject.Instantiate(_bulletPrefab).GetComponent<Bullet>());
-            yield return null;
-        }
-    }
-
     private Bullet GetBullet()
     {
         Bullet reservedBullet = null;

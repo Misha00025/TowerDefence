@@ -12,11 +12,11 @@ public class HealthView : MonoBehaviour
     private void Awake()
     {
         var enemy = GetComponent<Enemy>();
-        canvas.enabled = false;
+        canvas.gameObject.SetActive(false);
         _initialHealth = enemy.Health;
         enemy.HealthChanged.AddListener((int i) => 
-        { 
-            canvas.enabled = true;
+        {
+            canvas.gameObject.SetActive(true);
             healthBar.fillAmount = (float)i/(float)_initialHealth;
         });
     }

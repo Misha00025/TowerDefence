@@ -55,11 +55,6 @@ public class TowersController : MonoBehaviour
         }
     }
 
-    public void RemoveReadyTo(Wave wave)
-    {
-
-    }
-
     public void AddTower(Tower tower)
     {
         _towers.Add(tower);

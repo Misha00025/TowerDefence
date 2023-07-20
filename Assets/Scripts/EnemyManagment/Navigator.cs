@@ -11,6 +11,7 @@ public class Navigator : MonoBehaviour
     private Vector2[] _route;
     [SerializeField]
     private Vector2 _targetOffset;
+    [SerializeField] private float _maxDistance = 1f;
     private GameBoard _gameBoard;
 
     public Vector2[] Route => (Vector2[])_route.Clone();
@@ -60,6 +61,8 @@ public class Navigator : MonoBehaviour
             }
         }
         cells.Remove(nextCell);
+        if (Vector2.Distance(currentCell, nextCell) > _maxDistance)
+            nextCell = currentCell;
         var result = GenerateRoute(nextCell, cells);
         result.Add(nextCell);
         return result;

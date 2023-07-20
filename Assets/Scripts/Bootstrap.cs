@@ -25,17 +25,19 @@ public class Bootstrap : MonoBehaviour
 
     [Header("Пользовательский ввод")]
     [SerializeField] private PlayerInput _playerInput;
+    [SerializeField] private InputActions _inputActions;
 
     [Header("Отображение")]
     [SerializeField] private PlayerWalletView _playerWalletView;
     [SerializeField] private TextMeshProUGUI _meshPro;
     [SerializeField] private WaveTimerView _waveTimer;
+    [SerializeField] private MenuTogger _menuManager;
 
     [Header("Отладка")]
     [SerializeField] private TextMeshProUGUI _debugMesh;
 
     // Start is called before the first frame update
-    public void Start()
+    public void Awake()
     {
         _gameBoard.Initialize();
 
@@ -57,6 +59,7 @@ public class Bootstrap : MonoBehaviour
         InputInitialization(); 
         InitializeView();
         _playerInput.ActionActivated.AddListener((Ray ray, IncomingAction action) => { _debugMesh.SetText($"{action}"); });
+        _menuManager.CloseMenu();
     }
 
     private void AddListenerToFinish(List<Wave> waves)
@@ -71,7 +74,7 @@ public class Bootstrap : MonoBehaviour
     private void InputInitialization()
     {
         _playerInput.Initialize();
-
+        _inputActions.Initialize(_playerInput);
         _builderInput = new BuilderInput(_playerInput, _builder);
     }
 
