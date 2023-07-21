@@ -147,9 +147,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weapon: {fileID: 3400123618552990053}
   _spotter:
+    _spotScale: 0.6
     _numberOfCorrections: 1
     _considerDistance: 0
     _considerSpeed: 1
+  _target: {fileID: 0}
   TargetUnfocus:
     m_PersistentCalls:
       m_Calls: []

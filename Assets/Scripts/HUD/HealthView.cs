@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+[RequireComponent(typeof(EnemyGameObject))]
 public class HealthView : MonoBehaviour
 {
     [SerializeField] Canvas canvas;
@@ -11,7 +13,7 @@ public class HealthView : MonoBehaviour
 
     private void Awake()
     {
-        var enemy = GetComponent<Enemy>();
+        var enemy = GetComponent<EnemyGameObject>().Enemy;
         canvas.gameObject.SetActive(false);
         _initialHealth = enemy.Health;
         enemy.HealthChanged.AddListener((int i) => 

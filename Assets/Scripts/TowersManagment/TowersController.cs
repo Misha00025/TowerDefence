@@ -6,7 +6,7 @@ using UnityEngine;
 public class TowersController : MonoBehaviour
 {
     [SerializeField] private List<Tower> _towers = new List<Tower>();
-    [SerializeField] private List<Enemy> _enemiesInWave = new List<Enemy>();
+    [SerializeField] private List<EnemyGameObject> _enemiesInWave = new List<EnemyGameObject>();
 
     private void Update()
     {
@@ -35,14 +35,15 @@ public class TowersController : MonoBehaviour
         _enemiesInWave.Clear();
         foreach (var enemy in list)
         {
-            _enemiesInWave.Add(enemy.Enemy);
+            Debug.Log($"{enemy} added to enemy list");
+            _enemiesInWave.Add(enemy.GameObject);
         }
     }
 
     public void FindTargetTo(Tower tower)
     {
         //if (tower.Target == null && _enemiesInWave.Contains(tower.Target)) _enemiesInWave.Remove(tower.Target);
-        Debug.Log($"Tower '{tower.name}' find target");
+        //Debug.Log($"Tower '{tower.name}' find target");
         foreach (var target in _enemiesInWave)
         {
             if (target == null) continue;

@@ -188,7 +188,8 @@ GameObject:
   m_Component:
   - component: {fileID: 395139740966579161}
   - component: {fileID: 6067386094788299883}
-  - component: {fileID: 1601260369586201253}
+  - component: {fileID: 7867665086746146759}
+  - component: {fileID: 6170967893410570653}
   - component: {fileID: 8974402551453406024}
   - component: {fileID: 473950841901971575}
   - component: {fileID: 3670655626643416646}
@@ -267,7 +268,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1601260369586201253
+--- !u!114 &7867665086746146759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -276,14 +277,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 4530860547791886412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7ea583d24d278c42853defccd58cab2, type: 3}
+  m_Script: {fileID: 11500000, guid: 53e393975bb43564badd333edce37e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 50
-  _reward: 400
-  _armor: 10
-  _armoredAngle: 180
-  _weaknesses: 01000000
+  _enemy:
+    _health: 50
+    _reward: 400
+--- !u!114 &6170967893410570653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4530860547791886412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4622c3468c3a0f04ab163874ea411ac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buff:
+    _armor: 10
+    _minDamage: 1
+    _armoredAngle: 180
+    _weaknesses: 01000000
+    _transform: {fileID: 395139740966579161}
 --- !u!114 &8974402551453406024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,8 +313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e7abb485c13554ea7ddc8e1b4d9841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1.3
-  FinishedAlive:
+  _speed: 1.2
+  FinishAlive:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &473950841901971575

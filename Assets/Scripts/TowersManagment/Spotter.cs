@@ -5,6 +5,7 @@ using UnityEngine;
 [Serializable]
 public class Spotter
 {
+    [SerializeField] private float _spotScale = 1f;
     [SerializeField] private int _numberOfCorrections = 1;
     [SerializeField] private bool _considerDistance = true;
     [SerializeField] private bool _considerSpeed = true;
@@ -60,11 +61,17 @@ public class Spotter
     {
         float timeToHit = expectedDistance / bulletSpeed;
         if (!_considerDistance) timeToHit = 1;
-        Vector2 delta = _direction * _speed * timeToHit;
+        Vector2 delta = _direction * _speed * timeToHit * _spotScale;
         Vector2 expectedPosition = current + delta;
         float distance = Vector2.Distance(from, expectedPosition);
         if (distance > _maxDistance)
+        {
+            timeToHit = _maxDistance / bulletSpeed;
+            if (!_considerDistance) timeToHit = 1;
+            delta = _direction * _speed * timeToHit * _spotScale;
+            expectedPosition = current + delta;
             return current;
+        }
         if (iterations <= 1)
             return expectedPosition;
         iterations--;

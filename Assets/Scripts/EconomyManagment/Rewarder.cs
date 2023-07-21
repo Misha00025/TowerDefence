@@ -12,7 +12,7 @@ public class Rewarder
     {
         foreach (var mover in wave.Enemies)
         {
-            Enemy enemy = mover.Enemy;
+            IEnemy enemy = mover.Enemy;
             enemy.Died.AddListener(OnEnemyDied);
         }
     }

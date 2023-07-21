@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
     {
         transform.rotation = Quaternion.FromToRotation(Vector2.up, direction);
         float distance = 0;
-        Enemy enemy;
+        IEnemy enemy;
         while (distance < maxDistance)
         {
             float delta =  speed * _speedModifier * Time.deltaTime;
@@ -34,14 +34,20 @@ public class Bullet : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private bool TryFindEnemy(Vector2 direction, float delta, out Enemy enemy)
+    private bool TryFindEnemy(Vector2 direction, float delta, out IEnemy enemy)
     {
         enemy = null;
 
         Ray2D ray2D = new Ray2D() { direction = direction };
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, delta);
         if (hit.collider == null)
-            return false;        
-        return hit.collider.TryGetComponent<Enemy>(out enemy);
+            return false;
+        EnemyGameObject enemyGameObject;
+        bool success = hit.collider.TryGetComponent<EnemyGameObject>(out enemyGameObject);
+        if (success)
+        {
+            enemy = enemyGameObject.Enemy;
+        }
+        return success;
     }
 }

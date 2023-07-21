@@ -10,7 +10,7 @@ public class Tower : MonoBehaviour
 
     [SerializeField] private Transform _target;
 
-    public Enemy Target => _target.GetComponent<Enemy>();
+    public EnemyGameObject Target => _target.GetComponent<EnemyGameObject>();
     public Weapon Weapon => _weapon;
 
     public UnityEvent<Tower> TargetUnfocus = new UnityEvent<Tower>();
@@ -21,7 +21,7 @@ public class Tower : MonoBehaviour
         _spotter.SetMaxDistance(_weapon.AttackRadius);
     }
 
-    public void SetTarget(Enemy target)
+    public void SetTarget(EnemyGameObject target)
     {
         this._target = target.transform;
         _spotter.Observe(target.transform);
