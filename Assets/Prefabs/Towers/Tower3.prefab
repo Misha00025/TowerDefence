@@ -8,8 +8,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -4492743314263771471, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
+      propertyPath: _spread
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: -4492743314263771471, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
       propertyPath: _attackSpeed
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -4492743314263771471, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
+      propertyPath: _launchSpeed
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -4492743314263771471, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
       propertyPath: _attackRadius

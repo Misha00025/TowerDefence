@@ -25,11 +25,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4746227344342870347, guid: 53698b05357e443459b3a85bdc489ee4, type: 3}
       propertyPath: _reward
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4389460452031404569, guid: 53698b05357e443459b3a85bdc489ee4, type: 3}
       propertyPath: _speed
-      value: 1.6
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4979526620302516872, guid: 53698b05357e443459b3a85bdc489ee4, type: 3}
       propertyPath: m_RootOrder

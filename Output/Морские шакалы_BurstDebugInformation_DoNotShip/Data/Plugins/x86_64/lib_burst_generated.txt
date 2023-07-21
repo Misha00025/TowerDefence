@@ -95,8 +95,11 @@ Library: lib_burst_generated
 --compilation-defines=GFXDEVICE_WAITFOREVENT_MESSAGEPUMP
 --compilation-defines=ENABLE_WEBSOCKET_HOST
 --compilation-defines=ENABLE_MONO
---compilation-defines=NET_4_6
---compilation-defines=NET_UNITY_4_8
+--compilation-defines=NET_STANDARD_2_0
+--compilation-defines=NET_STANDARD
+--compilation-defines=NET_STANDARD_2_1
+--compilation-defines=NETSTANDARD
+--compilation-defines=NETSTANDARD2_1
 --compilation-defines=ENABLE_CUSTOM_RENDER_TEXTURE
 --compilation-defines=ENABLE_DIRECTOR
 --compilation-defines=ENABLE_LOCALIZATION
@@ -259,8 +262,11 @@ Library: lib_burst_generated
 --compilation-defines=GFXDEVICE_WAITFOREVENT_MESSAGEPUMP
 --compilation-defines=ENABLE_WEBSOCKET_HOST
 --compilation-defines=ENABLE_MONO
---compilation-defines=NET_4_6
---compilation-defines=NET_UNITY_4_8
+--compilation-defines=NET_STANDARD_2_0
+--compilation-defines=NET_STANDARD
+--compilation-defines=NET_STANDARD_2_1
+--compilation-defines=NETSTANDARD
+--compilation-defines=NETSTANDARD2_1
 --compilation-defines=ENABLE_CUSTOM_RENDER_TEXTURE
 --compilation-defines=ENABLE_DIRECTOR
 --compilation-defines=ENABLE_LOCALIZATION

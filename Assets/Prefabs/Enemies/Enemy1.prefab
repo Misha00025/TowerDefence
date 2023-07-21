@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 2
-  _reward: 4
+  _reward: 2
 --- !u!114 &4389460452031404569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,8 +369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e7abb485c13554ea7ddc8e1b4d9841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2.8
-  FinishedAlive:
+  _speed: 1.2
+  FinishAlive:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &5112372087395725606

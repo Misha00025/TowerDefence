@@ -16,7 +16,7 @@ public class WavesController : MonoBehaviour
     public float Dely => _dely;
 
     public UnityEvent<Wave> WaveStarted = new UnityEvent<Wave>();
-    public UnityEvent WavesIsEmpty = new UnityEvent();
+    public bool WavesIsEmpty => _waves.Count == 0;
 
     public void Initialize(List<Wave> waves)
     {

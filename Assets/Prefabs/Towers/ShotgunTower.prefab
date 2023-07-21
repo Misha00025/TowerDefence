@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5343459288346362694}
   - component: {fileID: 1811808560659998954}
   - component: {fileID: 2046392950864975298}
-  - component: {fileID: 1239290409133123440}
-  - component: {fileID: -1671397567199246450}
+  - component: {fileID: 3400123618552990053}
+  - component: {fileID: -5340613945317292942}
   m_Layer: 0
   m_Name: ShotgunTower
   m_TagString: Untagged
@@ -113,7 +113,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1239290409133123440
+--- !u!114 &3400123618552990053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,11 +128,11 @@ MonoBehaviour:
   _turret: {fileID: 5343459288346362694}
   _bulletPrefab: {fileID: 5623185397514778330, guid: 4d15cfd5b643aef4daf6e2b9c2c18ddc, type: 3}
   _damage: 1
-  _attackRadius: 10
-  _attackSpeed: 0.2
-  _spread: 60
-  _bulletsCount: 14
---- !u!114 &-1671397567199246450
+  _attackRadius: 4
+  _attackSpeed: 0.5
+  _spread: 10
+  _bulletsCount: 5
+--- !u!114 &-5340613945317292942
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,11 +141,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7473418895650267551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bcefa642f3751b44b5c51048c92e6ef, type: 3}
+  m_Script: {fileID: 11500000, guid: e0662907a2247824795190c2ae74fc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weapon: {fileID: 1239290409133123440}
-  _target: {fileID: 0}
+  _weapon: {fileID: 3400123618552990053}
   TargetUnfocus:
     m_PersistentCalls:
       m_Calls: []

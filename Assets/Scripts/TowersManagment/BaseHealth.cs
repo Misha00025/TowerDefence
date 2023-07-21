@@ -11,6 +11,14 @@ public class BaseHealth : MonoBehaviour
 
     public int Health => _health;
 
+    public void OnWaveStart(Wave wave)
+    {
+        foreach (var mover in wave.Enemies)
+        {
+            mover.FinishAlive.AddListener(TakeDamage);
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         if (_health == 0) return;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ArmoredEnemy : Enemy
 {
     [SerializeField] public int _armor = 10;
+    [SerializeField] public int _minDamage = 1;
     [SerializeField] public float _armoredAngle = 45;
     [SerializeField] public List<DamageType> _weaknesses;
     public override void TakeDamage(int damage, DamageInfo info)
@@ -20,6 +21,8 @@ public class ArmoredEnemy : Enemy
             // Debug.Log($"Angle = {_angle}; Delta = {delta}");
             if (_angle < _armoredAngle )
                 damage -= _armor;
+            if (damage < _minDamage) 
+                damage = _minDamage;
         }
         base.TakeDamage(damage, info);
     }

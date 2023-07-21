@@ -6,6 +6,7 @@ using UnityEngine;
 public class Bootstrap : MonoBehaviour
 {
     [SerializeField] private GameBoard _gameBoard;
+    [SerializeField] private Level _level;
 
     [Header("Враги и волны")]
     [SerializeField] private EnemyGenerator _enemyGenerator;
@@ -31,7 +32,12 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private PlayerWalletView _playerWalletView;
     [SerializeField] private TextMeshProUGUI _meshPro;
     [SerializeField] private WaveTimerView _waveTimer;
-    [SerializeField] private MenuTogger _menuManager;
+
+    [Header("Меню")]
+    [SerializeField] private MenusManager _menusManager;
+    [SerializeField] private MenuTogger _menu;
+    [SerializeField] private MenuTogger _winMenu;
+    [SerializeField] private MenuTogger _loseMenu;
 
     [Header("Отладка")]
     [SerializeField] private TextMeshProUGUI _debugMesh;
@@ -40,35 +46,38 @@ public class Bootstrap : MonoBehaviour
     public void Awake()
     {
         _gameBoard.Initialize();
+        _level.Initialize(_menusManager);
 
         _navigator.Initialize(_gameBoard);
         _enemyGenerator.Initialize(_gameBoard);
         var waves = _enemyGenerator.GenerateWaves();
-        AddListenerToFinish(waves);
         _wavesController.Initialize(waves);
         _enemySpawner.Initialize(_navigator);
-        _wavesController.WaveStarted.AddListener(_enemySpawner.StartSpawnWave);
 
         _builder.Initialize(_gameBoard, _playerWallet);
         _towersController.Initialize();
-        _wavesController.WaveStarted.AddListener(_towersController.GetReadyFor);
-        _builder.NewTowerBuilded.AddListener(_towersController.AddTower);
 
-        _rewarder = new Rewarder(waves, _playerWallet);
+        _rewarder = new Rewarder(_playerWallet);
 
         InputInitialization(); 
         InitializeView();
-        _playerInput.ActionActivated.AddListener((Ray ray, IncomingAction action) => { _debugMesh.SetText($"{action}"); });
-        _menuManager.CloseMenu();
+
+        AddListeners();
     }
 
-    private void AddListenerToFinish(List<Wave> waves)
+    private void AddListeners()
     {
-        foreach (Wave wave in waves) 
-            foreach (var mover in wave.Enemies)
-            {
-                mover.FinishedAlive.AddListener(_baseHealth.TakeDamage);
-            }
+        _playerInput.ActionActivated.AddListener((Ray ray, IncomingAction action) => { _debugMesh.SetText($"{action}"); });
+
+        _wavesController.WaveStarted.AddListener(_enemySpawner.StartSpawnWave);
+        _wavesController.WaveStarted.AddListener(_towersController.GetReadyFor);
+        _wavesController.WaveStarted.AddListener(_baseHealth.OnWaveStart);
+        _wavesController.WaveStarted.AddListener(_rewarder.OnWaveStart);
+        _wavesController.WaveStarted.AddListener(_level.OnWaveStart);
+
+        _baseHealth.HealthChanged.AddListener(_level.OnBaseHealthChanged);
+
+        _builder.NewTowerBuilded.AddListener(_towersController.AddTower);
     }
 
     private void InputInitialization()
@@ -82,5 +91,9 @@ public class Bootstrap : MonoBehaviour
     {
         _playerWalletView.Initialize(_playerWallet, _meshPro);
         _waveTimer.Initialize(_wavesController);
+
+        _menu.Initialize(_menusManager);
+        _loseMenu.Initialize(_menusManager);
+        _winMenu.Initialize(_menusManager);
     }
 }

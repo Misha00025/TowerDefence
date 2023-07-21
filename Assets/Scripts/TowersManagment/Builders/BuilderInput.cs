@@ -28,6 +28,7 @@ public class BuilderInput
                 if (_draggetTower == null)
                     break;
                 _builder.TryBuildTower(_draggetTower);
+                _draggetTower.GetComponent<SpriteRenderer>().sortingOrder = 0;
                 _dragged = false;
                 _draggetTower = null;
                 break;

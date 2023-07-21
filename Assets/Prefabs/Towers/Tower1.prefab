@@ -130,6 +130,8 @@ MonoBehaviour:
   _damage: 1
   _attackRadius: 4
   _attackSpeed: 3
+  _launchSpeed: 3
+  _spread: 0
 --- !u!114 &5107474976334737426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +145,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: -4492743314263771471}
-  _target: {fileID: 0}
+  _spotter:
+    _numberOfCorrections: 3
+    _considerDistance: 1
+    _considerSpeed: 1
   TargetUnfocus:
     m_PersistentCalls:
       m_Calls: []

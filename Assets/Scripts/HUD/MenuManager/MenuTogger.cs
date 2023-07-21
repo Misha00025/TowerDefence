@@ -8,7 +8,15 @@ public class MenuTogger : MonoBehaviour
     [SerializeField] Canvas _menuCanvas;
     [SerializeField] Canvas _ingameCanvas;
     [SerializeField] List<GameObject> _disabledObjects;
+
+    private MenusManager _manager;
     private bool _menuOpened = false;
+
+    public void Initialize(MenusManager manager)
+    {
+        _manager = manager;
+        CloseMenu();
+    }
 
     public void OpenMenu()
     {
@@ -41,9 +49,9 @@ public class MenuTogger : MonoBehaviour
     public void ToggeMenu()
     {
         if (_menuOpened)
-            CloseMenu();
+            _manager.CloseMenu(this);
         else
-            OpenMenu();
+            _manager.OpenMenu(this);
     }
 
 }

@@ -4,23 +4,29 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float _speed = 12f;
+    [SerializeField] private float _speedModifier = 1f;
+    [SerializeField] private float _damageModifier = 1f;
     [SerializeField] private DamageInfo _damageInfo;
 
-    public IEnumerator PersecuteTarget(Vector2 direction, float maxDistance, int damage)
+    public void LaunchTo(Vector2 direction, float maxDistance, int damage, float speed = 1f)
+    {
+        StartCoroutine(PersecuteTarget(direction, maxDistance, damage, speed));
+    }
+
+    public IEnumerator PersecuteTarget(Vector2 direction, float maxDistance, int damage, float speed = 1f)
     {
         transform.rotation = Quaternion.FromToRotation(Vector2.up, direction);
         float distance = 0;
         Enemy enemy;
         while (distance < maxDistance)
         {
-            float delta = _speed * Time.deltaTime;
+            float delta =  speed * _speedModifier * Time.deltaTime;
             transform.position += (Vector3)(direction * delta);
             distance += delta;
             if (TryFindEnemy(direction, delta, out enemy))
             {
                 Vector2 damageDirection = direction * -1;
-                enemy.TakeDamage(damage, new DamageInfo(_damageInfo, damageDirection.normalized));
+                enemy.TakeDamage((int)(damage*_damageModifier), new DamageInfo(_damageInfo, damageDirection.normalized));
                 break;
             }
             yield return null;

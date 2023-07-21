@@ -283,7 +283,7 @@ MonoBehaviour:
   _reward: 400
   _armor: 10
   _armoredAngle: 180
-  _weaknesses: 00000000
+  _weaknesses: 01000000
 --- !u!114 &8974402551453406024
 MonoBehaviour:
   m_ObjectHideFlags: 0

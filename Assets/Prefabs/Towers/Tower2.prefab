@@ -12,6 +12,18 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -4492743314263771471, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
+      propertyPath: _spread
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4492743314263771471, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
+      propertyPath: _attackSpeed
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -4492743314263771471, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
+      propertyPath: _launchSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -4492743314263771471, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
       propertyPath: _attackRadius
       value: 6
       objectReference: {fileID: 0}
