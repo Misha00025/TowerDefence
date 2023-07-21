@@ -16,7 +16,7 @@ public class Spotter
 
     private float _maxDistance;
 
-    public Spotter(float maxDistance)
+    public void SetMaxDistance(float maxDistance)
     {
         _maxDistance = maxDistance;
     }

@@ -1,9 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-using static UnityEngine.GraphicsBuffer;
 
-[Serializable]
 [RequireComponent(typeof(Weapon))]
 public class Tower : MonoBehaviour
 {
@@ -20,7 +18,7 @@ public class Tower : MonoBehaviour
     void Awake()
     {
         _weapon = GetComponent<Weapon>();
-        _spotter = new Spotter(_weapon.AttackRadius);
+        _spotter.SetMaxDistance(_weapon.AttackRadius);
     }
 
     public void SetTarget(Enemy target)
