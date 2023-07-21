@@ -6,7 +6,7 @@ using UnityEngine;
 public class TowersController : MonoBehaviour
 {
     [SerializeField] private List<Tower> _towers = new List<Tower>();
-    private List<Enemy> _enemiesInWave = new List<Enemy>();
+    [SerializeField] private List<Enemy> _enemiesInWave = new List<Enemy>();
 
     private void Update()
     {
@@ -47,7 +47,7 @@ public class TowersController : MonoBehaviour
         {
             if (target == null) continue;
             if (!target.isActiveAndEnabled) continue;
-            if (tower.Weapon.CanAttack(target))
+            if (tower.Weapon.CanAttack(target.transform))
             {
                 tower.SetTarget(target);
                 break;

@@ -20,17 +20,14 @@ public class MenusManager : MonoBehaviour
 
     public void CloseMenu(MenuTogger menu)
     {
-        if (!_menuOpened) return;
-
+        _menuOpened = false;
         menu.CloseMenu();
         _oppenedMenu = null;
-        _menuOpened = false;
     }
 
     public void ToggeMenu(MenuTogger menu)
     {
-        if (_oppenedMenu != menu) return;
-
+        if (_oppenedMenu != menu && _oppenedMenu != null) return;
         menu.ToggeMenu();
     }
 

@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 600
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -127,7 +127,280 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: firearms-vector-91126_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 862
+        width: 512
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7b29020bf760e94ba69e96184f8d668
+      internalID: -153108459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firearms-vector-91126_1
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 897
+        width: 582
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 750ea35ac2ac98e429772dd023fbb8b5
+      internalID: 754079687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firearms-vector-91126_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 643
+        width: 607
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 289f6648b6e74ad4c9cb13cb8b145e1b
+      internalID: -1578526315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firearms-vector-91126_3
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 656
+        width: 365
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d4a005545f74cd459ea3855747dcdab
+      internalID: 953729795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firearms-vector-91126_4
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 508
+        width: 352
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b35ee0ac6dc05c942a45cc05b9a1228a
+      internalID: 1012895568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firearms-vector-91126_5
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 475
+        width: 553
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12f457b721a5e84449d8bf0f1fa2835f
+      internalID: -1801525622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firearms-vector-91126_6
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 288
+        width: 324
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 669458aa05fe77e43b94588c6661e011
+      internalID: 838733367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firearms-vector-91126_7
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 358
+        width: 183
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef594ea5cb5184c438ef2488acee4b72
+      internalID: 1885725847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firearms-vector-91126_8
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 371
+        width: 117
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cf89f824a55aa344ad3ce60d76415af
+      internalID: 245339900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firearms-vector-91126_9
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 292
+        width: 186
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5df558ea099443e4684d30f173246cc3
+      internalID: -1723073544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firearms-vector-91126_10
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 272
+        width: 116
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d5fbe093bd183148a43067e4e4f2b71
+      internalID: -200801150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firearms-vector-91126_11
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 264
+        width: 45
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de44ef13258b8a4d8caad025b6f78a7
+      internalID: 794444127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: firearms-vector-91126_12
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 81
+        width: 966
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0921d3c232aad314fb5da69f9a47fdc1
+      internalID: -454551711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -138,7 +411,20 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      firearms-vector-91126_6: 838733367
+      firearms-vector-91126_3: 953729795
+      firearms-vector-91126_7: 1885725847
+      firearms-vector-91126_12: -454551711
+      firearms-vector-91126_8: 245339900
+      firearms-vector-91126_9: -1723073544
+      firearms-vector-91126_11: 794444127
+      firearms-vector-91126_10: -200801150
+      firearms-vector-91126_0: -153108459
+      firearms-vector-91126_5: -1801525622
+      firearms-vector-91126_4: 1012895568
+      firearms-vector-91126_1: 754079687
+      firearms-vector-91126_2: -1578526315
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -67,12 +67,12 @@ public class Weapon : MonoBehaviour
         LaunchToDirection(direction);
     }
 
-    public bool CanAttack(Enemy target)
+    public bool CanAttack(Transform target)
     {
         if (target == null) return false;
         if (_turret == null) return false;
         if (_bulletPrefab == null) return false;
-        bool inAttackRadius = Vector2.Distance(_turret.position, target.transform.position) < _attackRadius;
+        bool inAttackRadius = Vector2.Distance(_turret.position, target.position) < _attackRadius;
         return inAttackRadius;
     }
 }

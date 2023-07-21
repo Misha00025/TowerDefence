@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6be0a7c38f20236469316b665fea14ee, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.72692084, g: 0.4481132, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -129,9 +129,10 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 5623185397514778330, guid: 4d15cfd5b643aef4daf6e2b9c2c18ddc, type: 3}
   _damage: 1
   _attackRadius: 4
-  _attackSpeed: 0.5
-  _spread: 10
-  _bulletsCount: 5
+  _attackSpeed: 0.6
+  _launchSpeed: 3
+  _spread: 40
+  _bulletsCount: 8
 --- !u!114 &-5340613945317292942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +146,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: 3400123618552990053}
+  _spotter:
+    _numberOfCorrections: 1
+    _considerDistance: 0
+    _considerSpeed: 1
   TargetUnfocus:
     m_PersistentCalls:
       m_Calls: []
