@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: TextTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: TextTable
+  m_TableCollectionNameGuidString: 7c7f7bdb37a6b494487d12ecb4a1ddb2
+  m_Entries:
+  - m_Id: 518625796096
+    m_Key: MainMenu/Canvas/Menu/GameName/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2962613182464
+    m_Key: MainMenu/Canvas/Menu/StartButton/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3039167619072
+    m_Key: MainMenu/Canvas/Menu/ExitButton/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38929055195136
+    m_Key: Menu/Canvas (Environment)/Menu/ResumeButton/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38977486823424
+    m_Key: Menu/Canvas (Environment)/Menu/RestartButton/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39020788817920
+    m_Key: Menu/Canvas (Environment)/Menu/ExitButton/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39059607101440
+    m_Key: Menu/Canvas (Environment)/Menu/PauseLabel/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39105484398592
+    m_Key: Menu/Canvas (Environment)/Menu/WinLabel/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39132915146752
+    m_Key: Menu/Canvas (Environment)/Menu/LoseLabel/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 7180152286742053024
+  references:
+    version: 2
+    RefIds:
+    - rid: 7180152286742053024
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1690028759852

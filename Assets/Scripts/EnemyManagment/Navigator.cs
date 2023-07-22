@@ -19,7 +19,7 @@ public class Navigator : MonoBehaviour
     public void Initialize(GameBoard gameBoard)
     {
         _gameBoard = gameBoard;
-        _gameBoard.LoadComplite.AddListener(GenerateRoute);
+        _gameBoard.LoadComplete.AddListener(GenerateRoute);
     }
 
     private void GenerateRoute()
@@ -27,6 +27,34 @@ public class Navigator : MonoBehaviour
         List<Vector2> cells = _gameBoard.GetWaterCells().ToList();        
         _route = GenerateRoute(_gameBoard.GetTargetPosition() + _targetOffset, cells).ToArray();
         _route = ClearRoute(_route);
+    }
+
+    private List<Vector2> GenerateRoute(Vector2 currentCell, List<Vector2> cells)
+    {
+        if (cells.Count == 0) 
+            return new List<Vector2>();
+
+        Vector2 nextCell = cells[0];
+        float minDist = float.MaxValue;
+
+        foreach (Vector2 cell in cells)
+        {
+            float distance = Vector2.Distance(cell, currentCell);
+            if (distance < minDist)
+            {
+                nextCell = cell;
+                minDist = distance;
+            }
+        }
+        cells.Remove(nextCell);
+
+        if (Vector2.Distance(currentCell, nextCell) > _maxDistance)
+            nextCell = currentCell;
+
+        var result = GenerateRoute(nextCell, cells);
+        result.Add(nextCell);
+
+        return result;
     }
 
     private Vector2[] ClearRoute(Vector2[] route)
@@ -43,28 +71,5 @@ public class Navigator : MonoBehaviour
         }
         newRoute.Add(lastPoint);
         return newRoute.ToArray();
-    }
-
-    private List<Vector2> GenerateRoute(Vector2 currentCell, List<Vector2> cells)
-    {
-        if (cells.Count == 0) 
-            return new List<Vector2>();
-        Vector2 nextCell = cells[0];
-        float minDist = float.MaxValue;
-        foreach (Vector2 cell in cells)
-        {
-            float distance = Vector2.Distance(cell, currentCell);
-            if (distance < minDist)
-            {
-                nextCell = cell;
-                minDist = distance;
-            }
-        }
-        cells.Remove(nextCell);
-        if (Vector2.Distance(currentCell, nextCell) > _maxDistance)
-            nextCell = currentCell;
-        var result = GenerateRoute(nextCell, cells);
-        result.Add(nextCell);
-        return result;
     }
 }

@@ -4,6 +4,5 @@ using UnityEngine;
 
 public interface ISceneLoader
 {
-    void OnSceneAwake();
     void OnSceneLoaded(SceneLoadingInfo levelLoadingInfo);
 }

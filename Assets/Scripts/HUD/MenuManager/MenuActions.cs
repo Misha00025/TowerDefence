@@ -21,10 +21,10 @@ public class MenuActions : MonoBehaviour
         SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
     }
 
-    public void SaveSceneLoadingInfoLevel(int Level)
+    public void SaveSceneLoadingInfoLevel(SettingsManager settingsManager)
     {
         SceneLoadingInfo info = new SceneLoadingInfo();
-        info.Level = Level;
+        info.LocalizationSettings = settingsManager.LocalizationSettings;
         LoadingProcessor.Instance.RegisterLoadingModel(info);
     }
 }

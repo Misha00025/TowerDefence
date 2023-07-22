@@ -22,7 +22,7 @@ public class GameBoard : MonoBehaviour
     private Dictionary<Vector2, GameObject> _buildings = new Dictionary<Vector2, GameObject>();
 
 
-    public UnityEvent LoadComplite { get; private set; } = new UnityEvent();
+    public UnityEvent LoadComplete { get; private set; } = new UnityEvent();
 
     public void Initialize()
     {
@@ -37,6 +37,7 @@ public class GameBoard : MonoBehaviour
     {
         yield return new WaitForFixedUpdate();
         Cell[] cells = _tilemap.GetComponentsInChildren<Cell>();
+
         List<Vector2> water = new List<Vector2>();
         List<Vector2> ground = new List<Vector2>();
         foreach (Cell cell in cells)
@@ -54,7 +55,7 @@ public class GameBoard : MonoBehaviour
             Destroy(cell.gameObject);
         }
         _water = water.ToArray();
-        LoadComplite.Invoke();
+        LoadComplete.Invoke();
     }
 
     [ContextMenu("Выровнять по сетке")]

@@ -95,11 +95,8 @@ Library: lib_burst_generated
 --compilation-defines=GFXDEVICE_WAITFOREVENT_MESSAGEPUMP
 --compilation-defines=ENABLE_WEBSOCKET_HOST
 --compilation-defines=ENABLE_MONO
---compilation-defines=NET_STANDARD_2_0
---compilation-defines=NET_STANDARD
---compilation-defines=NET_STANDARD_2_1
---compilation-defines=NETSTANDARD
---compilation-defines=NETSTANDARD2_1
+--compilation-defines=NET_4_6
+--compilation-defines=NET_UNITY_4_8
 --compilation-defines=ENABLE_CUSTOM_RENDER_TEXTURE
 --compilation-defines=ENABLE_DIRECTOR
 --compilation-defines=ENABLE_LOCALIZATION
@@ -125,6 +122,12 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_ANIMATION_BURST
 --compilation-defines=TIMELINE_FRAMEACCURATE
 --compilation-defines=ENABLE_SPRITESHAPE_BURST
+--compilation-defines=PACKAGE_UGUI
+--compilation-defines=MODULE_AUDIO
+--compilation-defines=PACKAGE_TMP
+--compilation-defines=ENABLE_PROPERTY_VARIANTS
+--compilation-defines=ENABLE_ASYNC_ASSETBUNDLE_UWR
+--compilation-defines=ENABLE_ADDRESSABLE_PROFILER
 --linker-options=PdbAltPath="Морские шакалы_Data/Plugins/x86_64"
 --generate-link-xml=Temp\burst.link.xml
 --output=C:\Programming\TowerDefence\Temp\StagingArea\Data\Plugins\x86_64\lib_burst_generated
@@ -159,6 +162,11 @@ Library: lib_burst_generated
 --root-assembly=C:\Programming\TowerDefence\Temp\StagingArea\Data\Managed\Unity.Profiling.Core.dll
 --root-assembly=C:\Programming\TowerDefence\Temp\StagingArea\Data\Managed\Unity.InternalAPIEngineBridge.001.dll
 --root-assembly=C:\Programming\TowerDefence\Temp\StagingArea\Data\Managed\Unity.Services.Core.Configuration.dll
+--root-assembly=C:\Programming\TowerDefence\Temp\StagingArea\Data\Managed\Unity.Localization.dll
+--root-assembly=C:\Programming\TowerDefence\Temp\StagingArea\Data\Managed\Unity.ResourceManager.dll
+--root-assembly=C:\Programming\TowerDefence\Temp\StagingArea\Data\Managed\Unity.Addressables.dll
+--root-assembly=C:\Programming\TowerDefence\Temp\StagingArea\Data\Managed\Unity.ScriptableBuildPipeline.dll
+--root-assembly=C:\Programming\TowerDefence\Temp\StagingArea\Data\Managed\Unity.InternalAPIEngineBridge.013.dll
 --assembly-folder=C:\Programming\TowerDefence\Temp\StagingArea\Data\Managed\
 --pdb-search-paths=Temp/ManagedSymbols/
 --method=Unity.Burst.BurstCompiler+BurstCompilerHelper, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::IsBurstEnabled()--8c2be93e18276203cbd918daa2748a10
@@ -262,11 +270,8 @@ Library: lib_burst_generated
 --compilation-defines=GFXDEVICE_WAITFOREVENT_MESSAGEPUMP
 --compilation-defines=ENABLE_WEBSOCKET_HOST
 --compilation-defines=ENABLE_MONO
---compilation-defines=NET_STANDARD_2_0
---compilation-defines=NET_STANDARD
---compilation-defines=NET_STANDARD_2_1
---compilation-defines=NETSTANDARD
---compilation-defines=NETSTANDARD2_1
+--compilation-defines=NET_4_6
+--compilation-defines=NET_UNITY_4_8
 --compilation-defines=ENABLE_CUSTOM_RENDER_TEXTURE
 --compilation-defines=ENABLE_DIRECTOR
 --compilation-defines=ENABLE_LOCALIZATION
@@ -292,6 +297,12 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_ANIMATION_BURST
 --compilation-defines=TIMELINE_FRAMEACCURATE
 --compilation-defines=ENABLE_SPRITESHAPE_BURST
+--compilation-defines=PACKAGE_UGUI
+--compilation-defines=MODULE_AUDIO
+--compilation-defines=PACKAGE_TMP
+--compilation-defines=ENABLE_PROPERTY_VARIANTS
+--compilation-defines=ENABLE_ASYNC_ASSETBUNDLE_UWR
+--compilation-defines=ENABLE_ADDRESSABLE_PROFILER
 --linker-options=PdbAltPath="Морские шакалы_Data/Plugins/x86_64"
 --generate-link-xml=Temp\burst.link.xml
 --output=C:\Programming\TowerDefence\Temp\StagingArea\Data\Plugins\x86_64\lib_burst_generated
@@ -326,6 +337,11 @@ Library: lib_burst_generated
 --root-assembly=C:\Programming\TowerDefence\Temp\StagingArea\Data\Managed\Unity.Profiling.Core.dll
 --root-assembly=C:\Programming\TowerDefence\Temp\StagingArea\Data\Managed\Unity.InternalAPIEngineBridge.001.dll
 --root-assembly=C:\Programming\TowerDefence\Temp\StagingArea\Data\Managed\Unity.Services.Core.Configuration.dll
+--root-assembly=C:\Programming\TowerDefence\Temp\StagingArea\Data\Managed\Unity.Localization.dll
+--root-assembly=C:\Programming\TowerDefence\Temp\StagingArea\Data\Managed\Unity.ResourceManager.dll
+--root-assembly=C:\Programming\TowerDefence\Temp\StagingArea\Data\Managed\Unity.Addressables.dll
+--root-assembly=C:\Programming\TowerDefence\Temp\StagingArea\Data\Managed\Unity.ScriptableBuildPipeline.dll
+--root-assembly=C:\Programming\TowerDefence\Temp\StagingArea\Data\Managed\Unity.InternalAPIEngineBridge.013.dll
 --assembly-folder=C:\Programming\TowerDefence\Temp\StagingArea\Data\Managed\
 --pdb-search-paths=Temp/ManagedSymbols/
 --method=Unity.Burst.BurstCompiler+BurstCompilerHelper, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::IsBurstEnabled()--8c2be93e18276203cbd918daa2748a10
