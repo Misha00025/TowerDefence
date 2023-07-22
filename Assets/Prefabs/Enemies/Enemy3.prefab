@@ -264,12 +264,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4979526620302516872}
   - component: {fileID: -7758951098650983110}
-  - component: {fileID: 5601545653673265506}
+  - component: {fileID: 1062353105130442209}
   - component: {fileID: 4389460452031404569}
   - component: {fileID: 5112372087395725606}
   - component: {fileID: 8255605318492811031}
   m_Layer: 0
-  m_Name: Enemy1
+  m_Name: Enemy3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -343,7 +343,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5601545653673265506
+--- !u!114 &1062353105130442209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -356,8 +356,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy:
-    _health: 5
-    _reward: 4
+    _health: 10
+    _reward: 10
 --- !u!114 &4389460452031404569
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private Level _level;
 
     [Header("¬раги и волны")]
-    [SerializeField] private EnemyGenerator _enemyGenerator;
+    [SerializeField] private WavesGenerator _enemyGenerator;
     [SerializeField] private Navigator _navigator;
     [SerializeField] private WavesController _wavesController;
     [SerializeField] private EnemySpawner _enemySpawner;
@@ -50,8 +50,7 @@ public class Bootstrap : MonoBehaviour
 
         _navigator.Initialize(_gameBoard);
         _enemyGenerator.Initialize(_gameBoard);
-        var waves = _enemyGenerator.GenerateWaves();
-        _wavesController.Initialize(waves);
+        _wavesController.Initialize(_enemyGenerator);
         _enemySpawner.Initialize(_navigator);
 
         _builder.Initialize(_gameBoard, _playerWallet);

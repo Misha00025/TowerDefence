@@ -11,12 +11,12 @@ public class TowersController : MonoBehaviour
     private void Update()
     {
         if (_enemiesInWave == null) return;
-        Debug.Log($"Current enemies count: {_enemiesInWave.Count}");
+        //Debug.Log($"Current enemies count: {_enemiesInWave.Count}");
         if (_enemiesInWave.Count == 0) return;
 
         foreach (var tower in _towers)
         {
-            Debug.Log($"TryAttack");
+            //Debug.Log($"TryAttack");
             tower.TryAttack();
         }
     }
@@ -32,18 +32,15 @@ public class TowersController : MonoBehaviour
     public void GetReadyFor(Wave wave)
     {        
         var list = wave.Enemies;
-        _enemiesInWave.Clear();
         foreach (var enemy in list)
         {
-            Debug.Log($"{enemy} added to enemy list");
+            //Debug.Log($"{enemy} added to enemy list");
             _enemiesInWave.Add(enemy.GameObject);
         }
     }
 
     public void FindTargetTo(Tower tower)
     {
-        //if (tower.Target == null && _enemiesInWave.Contains(tower.Target)) _enemiesInWave.Remove(tower.Target);
-        //Debug.Log($"Tower '{tower.name}' find target");
         foreach (var target in _enemiesInWave)
         {
             if (target == null) continue;
