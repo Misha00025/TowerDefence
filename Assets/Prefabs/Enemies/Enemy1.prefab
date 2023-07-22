@@ -355,9 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e393975bb43564badd333edce37e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemy:
-    _health: 5
-    _reward: 4
+  _stats: {fileID: 11400000, guid: ddedae1a7ab7ce548897f2cac852e9f5, type: 2}
 --- !u!114 &4389460452031404569
 MonoBehaviour:
   m_ObjectHideFlags: 0

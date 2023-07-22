@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuActions : MonoBehaviour
 {
-    public void OnExitButtonClicked()
+    public void ExitGame()
     {
         if (Application.isPlaying)
         {
@@ -11,8 +11,20 @@ public class MenuActions : MonoBehaviour
         }
     }
 
-    public void OnRestartButtonClicked()
+    public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void OpenScene(string sceneName)
+    {
+        SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+    }
+
+    public void SaveSceneLoadingInfoLevel(int Level)
+    {
+        SceneLoadingInfo info = new SceneLoadingInfo();
+        info.Level = Level;
+        LoadingProcessor.Instance.RegisterLoadingModel(info);
     }
 }

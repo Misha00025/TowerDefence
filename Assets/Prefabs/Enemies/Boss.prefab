@@ -280,9 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e393975bb43564badd333edce37e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemy:
-    _health: 50
-    _reward: 400
+  _stats: {fileID: 11400000, guid: 78316d1504db4df49b7c5bbdc2ec3361, type: 2}
 --- !u!114 &6170967893410570653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +296,7 @@ MonoBehaviour:
   _buff:
     _armor: 10
     _minDamage: 1
-    _armoredAngle: 180
+    _armoredAngle: 100
     _weaknesses: 01000000
     _transform: {fileID: 395139740966579161}
 --- !u!114 &8974402551453406024

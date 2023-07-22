@@ -4,11 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[Serializable]
+
 public class Enemy : IEnemy
 {
-    [SerializeField] private int _health = 10;
-    [SerializeField] private int _reward = 10;
+    private int _health = 10;
+    private int _reward = 10;
+
+    public Enemy(EnemyStats stats)
+    {
+        _health = stats.Health; 
+        _reward = stats.Reward;
+    }
 
     public UnityEvent<int> HealthChanged { get; private set; } = new UnityEvent<int>();
     public UnityEvent<int> Died { get; private set; } = new UnityEvent<int>();

@@ -21,6 +21,7 @@ public class EnemyMover : MonoBehaviour
     private void Awake()
     {
         _enemyGameObject = GetComponent<EnemyGameObject>();
+        _speed = _enemyGameObject.Stats.Speed;
     }
 
     public void SetRoute(Vector2[] route)

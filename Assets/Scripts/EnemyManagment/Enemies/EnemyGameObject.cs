@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class EnemyGameObject : MonoBehaviour
 {
-    [SerializeField] private Enemy _enemy;
-    [SerializeField] private IEnemy _currentEnemy;
+    [SerializeField] private EnemyStats _stats;
+    private Enemy _enemy;
+    private IEnemy _currentEnemy;
 
     private void Awake()
     {
+        _enemy = new Enemy(_stats);
         Enemy.Died.AddListener((int i) => { Destroy(gameObject); });
     }
+
+    public EnemyStats Stats => _stats;
 
     public IEnemy Enemy 
     { 

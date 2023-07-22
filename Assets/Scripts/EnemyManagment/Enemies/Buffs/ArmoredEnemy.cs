@@ -10,7 +10,7 @@ public class ArmoredEnemy : IEnemy
     private IEnemy _enemy;
     [SerializeField] private int _armor = 10;
     [SerializeField] private int _minDamage = 1;
-    [SerializeField] private float _armoredAngle = 45;
+    [SerializeField] [Range(0,180)] private float _armoredAngle = 45;
     [SerializeField] private List<DamageType> _weaknesses;
     [SerializeField] private Transform _transform;
 
