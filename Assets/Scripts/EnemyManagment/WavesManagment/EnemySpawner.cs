@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -28,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnWave(Queue<EnemyMover> enemies)
     {
-        Vector2[] route = _navigator.Route;
+        Vector2[] route = _navigator.Route.ToArray();
         while(enemies.Count > 0)
         {
             EnemyMover enemy = enemies.Dequeue();

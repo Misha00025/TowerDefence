@@ -103,6 +103,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8420300735560139330, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420300735560139330, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420300735560139330, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8582508795233550218, guid: eb4a3b29061eafa478c3ce0431965443, type: 3}
       propertyPath: m_Name
       value: Tower2

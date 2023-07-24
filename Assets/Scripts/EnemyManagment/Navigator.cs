@@ -1,20 +1,21 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Navigator : MonoBehaviour
 {
-    [SerializeField]
-    private Vector2[] _route;
-    [SerializeField]
-    private Vector2 _targetOffset;
-    [SerializeField] private float _maxDistance = 1f;
+    [SerializeField] private List<Vector2>[] _routes;
     private GameBoard _gameBoard;
 
-    public Vector2[] Route => (Vector2[])_route.Clone();
+    public IReadOnlyList<Vector2> Route
+    {
+        get 
+        {
+            System.Random rand = new System.Random();
+            int index = rand.Next(0, _routes.Length);
+            return _routes[index]; 
+        }
+    }
 
     public void Initialize(GameBoard gameBoard)
     {
@@ -24,37 +25,55 @@ public class Navigator : MonoBehaviour
 
     private void GenerateRoute()
     {        
-        List<Vector2> cells = _gameBoard.GetWaterCells().ToList();        
-        _route = GenerateRoute(_gameBoard.GetTargetPosition() + _targetOffset, cells).ToArray();
-        _route = ClearRoute(_route);
+        _routes = GenerateRoutesTo(_gameBoard.TargetCell, new HashSet<Cell>()).ToArray();
+        Debug.Log(_routes.Length);
+        
+        foreach (var route in _routes)
+        {
+            string routeStr = "";
+            foreach (var cell in route)
+            {
+                routeStr += cell.ToString();
+            }
+            Debug.Log(routeStr);
+        }
     }
 
-    private List<Vector2> GenerateRoute(Vector2 currentCell, List<Vector2> cells)
+    private List<List<Vector2>> GenerateRoutesTo(Cell targetCell, HashSet<Cell> passedCells)
     {
-        if (cells.Count == 0) 
-            return new List<Vector2>();
+        if (targetCell == null)
+            return null;
 
-        Vector2 nextCell = cells[0];
-        float minDist = float.MaxValue;
+        passedCells.Add(targetCell);
 
-        foreach (Vector2 cell in cells)
+        List<List<Vector2>> routes = new List<List<Vector2>>();
+
+        foreach (Cell neighbour in targetCell.Neighbours)
         {
-            float distance = Vector2.Distance(cell, currentCell);
-            if (distance < minDist)
-            {
-                nextCell = cell;
-                minDist = distance;
-            }
+            //Debug.Log($"Current: {targetCell.Position}; Neighbour: {neighbour.Position}");
+            if (passedCells.Contains(neighbour)) continue;
+
+            List<List<Vector2>> neighbourRoutes = GenerateRoutesTo(neighbour, passedCells.ToHashSet());
+            if (neighbourRoutes == null) continue;
+
+            routes.AddRange(neighbourRoutes);
         }
-        cells.Remove(nextCell);
 
-        if (Vector2.Distance(currentCell, nextCell) > _maxDistance)
-            nextCell = currentCell;
+        if (routes.Count == 0)
+        {
+            //if (!_gameBoard.SpawnCellPositions.Contains(targetCell.Position)) return null;
+            if (targetCell.Neighbours.Count > 1) return null;
+            routes.Add(new List<Vector2>());
+        }
 
-        var result = GenerateRoute(nextCell, cells);
-        result.Add(nextCell);
+        Vector2 targetCellWorldPosition = _gameBoard.Grid.GetCellCenterWorld((Vector3Int)targetCell.Position);
 
-        return result;
+        foreach (List<Vector2> route in routes)
+        {
+            route.Add(targetCellWorldPosition);
+        }
+
+        return routes;
     }
 
     private Vector2[] ClearRoute(Vector2[] route)

@@ -28,7 +28,7 @@ public class BuilderInput
                 if (_draggetTower == null)
                     break;
                 _builder.TryBuildTower(_draggetTower);
-                _draggetTower.GetComponent<SpriteRenderer>().sortingOrder = 0;
+                _draggetTower.UnSelect();
                 _dragged = false;
                 _draggetTower = null;
                 break;
@@ -45,7 +45,7 @@ public class BuilderInput
             {
                 Tower tower = blueprint.GetInstanciatedObject();
                 tower.transform.position = ray.origin;
-                tower.GetComponent<SpriteRenderer>().sortingOrder = 102;
+                tower.Select();
                 _dragged = true;
                 _draggetTower = tower;
                 _playerInput.StartCoroutine(Drag(tower));
@@ -55,8 +55,11 @@ public class BuilderInput
 
     private IEnumerator Drag(Tower tower)
     {
+
+
         while (_dragged)
         {
+            
             tower.transform.position = _playerInput.GetInputRay().origin;
             yield return null;
         }

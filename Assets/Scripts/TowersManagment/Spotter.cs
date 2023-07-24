@@ -51,7 +51,7 @@ public class Spotter
                 float distance = Vector2.Distance(from.position, target.position);
                 Vector2 expectedPosition =
                     CalculateExpectedPosition(from.position, target.position, distance, bulletSpeed, _numberOfCorrections);
-                Debug.Log($"Target Direction: {targetDirection}; Speed: {speed}; Distance: {distance}");
+                //Debug.Log($"Target Direction: {targetDirection}; Speed: {speed}; Distance: {distance}");
                 correctDirection = CalculateDirection(from.position, expectedPosition);
             }
         return correctDirection.normalized;

@@ -16,7 +16,6 @@ public class SceneLoader : MonoBehaviour, ISceneLoader
         
         if (!_isLoaded)
             OnSceneLoaded(_defaultInfo);
-        _settingsStorage.LocalizationSettings = _defaultInfo.LocalizationSettings;
     }
 
     public void OnSceneLoaded(SceneLoadingInfo info)

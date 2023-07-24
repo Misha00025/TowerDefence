@@ -12,6 +12,7 @@ public class WavesController : MonoBehaviour
     [SerializeField]
     private List<Wave> _waves = new List<Wave>();
     private float _timer = 0;
+    private bool _waveIsStarted = false;
 
     public float Dely => _dely;
     public bool WavesIsEmpty => _generator.WavesListIsEmpty && _waves.Count == 0;
@@ -25,10 +26,13 @@ public class WavesController : MonoBehaviour
 
     private void Update()
     {
-        _timer += Time.deltaTime;
-        if (_timer > _dely)
+        if (!_waveIsStarted)
         {
-            StartNextWave();
+            _timer += Time.deltaTime;
+            if (_timer > _dely)
+            {
+                StartNextWave();
+            }
         }
         UpdateWaves();
     }
@@ -38,10 +42,13 @@ public class WavesController : MonoBehaviour
         if (wave == null)
             return;
         Wave _currentWave = wave;
+        _waveIsStarted= true;
         _waves.Add(_currentWave);
         _currentWave.WaveStoped.AddListener((Wave wave) =>
         {
             _waves.Remove(wave);
+            if (_waves.Count == 0)
+                _waveIsStarted = false;
         });
         _currentWave.Start();
         WaveStarted.Invoke(_currentWave);

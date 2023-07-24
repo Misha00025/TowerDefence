@@ -3,11 +3,10 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Weapon))]
-public class Tower : MonoBehaviour
+public class Tower : Building
 {
     [SerializeField] private Weapon _weapon;
     [SerializeField] private Spotter _spotter;
-
     [SerializeField] private Transform _target;
 
     public EnemyGameObject Target => _target.GetComponent<EnemyGameObject>();

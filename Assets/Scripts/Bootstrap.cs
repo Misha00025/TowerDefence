@@ -45,10 +45,10 @@ public class Bootstrap : MonoBehaviour
     // Start is called before the first frame update
     public void Awake()
     {
+        _navigator.Initialize(_gameBoard);
         _gameBoard.Initialize();
         _level.Initialize(_menusManager);
 
-        _navigator.Initialize(_gameBoard);
         _enemyGenerator.Initialize(_gameBoard);
         _wavesController.Initialize(_enemyGenerator);
         _enemySpawner.Initialize(_navigator);

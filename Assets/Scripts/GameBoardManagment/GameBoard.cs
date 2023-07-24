@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
@@ -8,56 +8,65 @@ using UnityEngine.Tilemaps;
 [RequireComponent(typeof(Grid))]
 public class GameBoard : MonoBehaviour
 {
+    [SerializeField] private Tilemap _tilemap;
+    [SerializeField] private List<GameObject> _objects = new List<GameObject>(100);
+    [SerializeField] private GameObject _target;
+    [SerializeField] private TileBase _waterTileBase;
+    [SerializeField] private TileBase _foundationTileBase;
+    [SerializeField] private List<Vector2Int> _spawnPointCellPositions = new List<Vector2Int>();
+
     private bool _initialized = false;
     private Grid _grid = null;
-    [SerializeField]
-    private Tilemap _tilemap;
-    [SerializeField]
-    private List<GameObject> _objects = new List<GameObject>(100);
-
-    [SerializeField]
-    private GameObject _target;
 
     private Vector2[] _water;
-    private Dictionary<Vector2, GameObject> _buildings = new Dictionary<Vector2, GameObject>();
-
+    private Dictionary<Vector2Int, GameObject> _buildings = new Dictionary<Vector2Int, GameObject>();
+    private Dictionary<Vector2Int, Cell> _initializedCells = new Dictionary<Vector2Int, Cell>();
 
     public UnityEvent LoadComplete { get; private set; } = new UnityEvent();
+    public Grid Grid => _grid;
+    public Cell TargetCell
+    {
+        get
+        {
+            Vector2Int targetCellPosition = (Vector2Int)_grid.WorldToCell(_target.transform.position);
+            return _initializedCells.ContainsKey(targetCellPosition) ? _initializedCells[targetCellPosition] : null;
+        }
+    }
+    public IReadOnlyList<Vector2Int> SpawnCellPositions => _spawnPointCellPositions;
+
+       
 
     public void Initialize()
     {
         if (_initialized) return;
         _grid = GetComponent<Grid>();
         _initialized = true;
-        StartCoroutine(FindCells());
+        FindCells();
         AlignToGrid();
     }
 
-    private IEnumerator FindCells()
+    private void FindCells()
     {
-        yield return new WaitForFixedUpdate();
-        Cell[] cells = _tilemap.GetComponentsInChildren<Cell>();
-
-        List<Vector2> water = new List<Vector2>();
-        List<Vector2> ground = new List<Vector2>();
-        foreach (Cell cell in cells)
+        foreach (Vector2Int cellPosition in _tilemap.cellBounds.allPositionsWithin)
         {
-            Vector2 position = cell.transform.position;
-            if (cell.CanBuild)
+            TileBase tile = _tilemap.GetTile((Vector3Int)cellPosition);
+            if (tile != null)
             {
-                ground.Add(position);
-                _buildings.Add((Vector2Int)GetCellPosition(position), null);
+                if (tile == _waterTileBase)
+                {
+                    Cell currentCell = Cell.GetInitializedOrCreate(tile, cellPosition, _initializedCells);
+                    currentCell.DefineSurroundingTiles(_tilemap);
+                }
+                if (tile == _foundationTileBase)
+                {
+                    _buildings.Add(cellPosition, null);
+                }
             }
-            if (cell.CanMove)
-            {
-                water.Add(position);
-            }
-            Destroy(cell.gameObject);
         }
-        _water = water.ToArray();
         LoadComplete.Invoke();
     }
 
+#if UNITY_EDITOR
     [ContextMenu("Выровнять по сетке")]
     private void AlignToGrid()
     {
@@ -71,9 +80,12 @@ public class GameBoard : MonoBehaviour
             obj.transform.position = newPosition;
         }
     }
+#endif
 
     public Vector2[] GetWaterCells()
     {
+        if (_water == null)
+            return new Vector2[] { Vector2.zero };
         return (Vector2[])_water.Clone();
     }
 

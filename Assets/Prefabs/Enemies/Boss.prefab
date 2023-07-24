@@ -191,7 +191,8 @@ GameObject:
   - component: {fileID: 7867665086746146759}
   - component: {fileID: 6170967893410570653}
   - component: {fileID: 8974402551453406024}
-  - component: {fileID: 473950841901971575}
+  - component: {fileID: -5815340832388400937}
+  - component: {fileID: 7508202954795031622}
   - component: {fileID: 3670655626643416646}
   m_Layer: 0
   m_Name: Boss
@@ -315,7 +316,7 @@ MonoBehaviour:
   FinishAlive:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &473950841901971575
+--- !u!114 &-5815340832388400937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -324,12 +325,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 4530860547791886412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b37ddd27f784f7149a3b1110ce166a6b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b1fa5fc83d2e164a9de49bfca115ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 7195388560209316035}
   healthBar: {fileID: 2194997754531034923}
   _initialHealth: 0
+--- !u!114 &7508202954795031622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4530860547791886412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4622c3468c3a0f04ab163874ea411ac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buff:
+    _armor: 10
+    _minDamage: 0
+    _armoredAngle: 180
+    _weaknesses: 01000000
+    _transform: {fileID: 395139740966579161}
 --- !u!61 &3670655626643416646
 BoxCollider2D:
   m_ObjectHideFlags: 0
