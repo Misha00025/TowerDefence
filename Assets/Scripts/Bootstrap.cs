@@ -66,13 +66,13 @@ public class Bootstrap : MonoBehaviour
 
     private void AddListeners()
     {
-        _playerInput.ActionActivated.AddListener((Ray ray, IncomingAction action) => { _debugMesh.SetText($"{action}"); });
+        GlobalEventSystem.Instance.InputAction.AddListener((Ray ray, IncomingAction action) => { _debugMesh.SetText($"{action}"); });
 
-        _wavesController.WaveStarted.AddListener(_enemySpawner.StartSpawnWave);
-        _wavesController.WaveStarted.AddListener(_towersController.GetReadyFor);
-        _wavesController.WaveStarted.AddListener(_baseHealth.OnWaveStart);
-        _wavesController.WaveStarted.AddListener(_rewarder.OnWaveStart);
-        _wavesController.WaveStarted.AddListener(_level.OnWaveStart);
+        GlobalEventSystem.Instance.WaveStarted.AddListener(_enemySpawner.StartSpawnWave);
+        GlobalEventSystem.Instance.WaveStarted.AddListener(_towersController.GetReadyFor);
+        GlobalEventSystem.Instance.WaveStarted.AddListener(_baseHealth.OnWaveStart);
+        GlobalEventSystem.Instance.WaveStarted.AddListener(_rewarder.OnWaveStart);
+        GlobalEventSystem.Instance.WaveStarted.AddListener(_level.OnWaveStart);
 
         _baseHealth.HealthChanged.AddListener(_level.OnBaseHealthChanged);
 
